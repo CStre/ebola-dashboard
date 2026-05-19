@@ -26,13 +26,15 @@
     if (!iso) return '—';
     const d = new Date(iso);
     if (isNaN(d.getTime())) return '—';
-    return d.toLocaleString('en-US', {
+    // Always render Eastern Time as "ET" rather than EDT/EST so the label
+    // stays stable across DST boundaries.
+    const formatted = d.toLocaleString('en-US', {
       timeZone: DISPLAY_TZ,
       month: 'short', day: 'numeric',
       hour: 'numeric', minute: '2-digit',
       hour12: true,
-      timeZoneName: 'short',
     });
+    return `${formatted} ET`;
   };
 
   const setText = (id, value) => {
@@ -618,6 +620,88 @@
     });
   }
 
+  function buildTierChart(locations = []) {
+    const ctx = document.getElementById('chart-tier');
+    if (!ctx) return;
+    if (_charts.tier) _charts.tier.destroy();
+
+    const tiers = [
+      { key: 'epicenter',     label: 'Epicenter',     color: ACCENT_2 },
+      { key: 'high',          label: 'Active hotspot', color: '#ffb547' },
+      { key: 'new',           label: 'New (last 24h)', color: ACCENT },
+      { key: 'international', label: 'International',  color: INFO },
+      { key: 'retracted',     label: 'Retracted',      color: 'rgba(163,173,194,0.5)' },
+    ];
+
+    const counts = {};
+    (locations || []).forEach((l) => {
+      const t = l.tier || 'high';
+      counts[t] = (counts[t] || 0) + 1;
+    });
+
+    const present = tiers.filter((t) => counts[t.key]);
+    if (present.length === 0) return;
+
+    const labels = present.map((t) => t.label);
+    const data = present.map((t) => counts[t.key]);
+    const colors = present.map((t) => t.color);
+    const totalActive = (locations || []).filter((l) => l.status === 'active').length;
+
+    _charts.tier = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          backgroundColor: colors,
+          borderColor: 'transparent',
+          borderWidth: 0,
+          hoverOffset: 8,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' },
+          },
+          tooltip: {
+            backgroundColor: '#0f1424',
+            borderColor: 'rgba(255,255,255,0.14)',
+            borderWidth: 1,
+            padding: 12,
+            titleColor: TEXT,
+            bodyColor: TEXT_DIM,
+            cornerRadius: 8,
+            callbacks: {
+              label: (ctx) => ` ${ctx.label}: ${ctx.parsed} location${ctx.parsed === 1 ? '' : 's'}`,
+            },
+          },
+        },
+      },
+      plugins: [{
+        id: 'tierCenter',
+        beforeDraw(chart) {
+          const { ctx, chartArea: { left, right, top, bottom } } = chart;
+          const x = (left + right) / 2;
+          const y = (top + bottom) / 2;
+          ctx.save();
+          ctx.textAlign = 'center';
+          ctx.fillStyle = '#e8ecf5';
+          ctx.font = '600 28px Inter, sans-serif';
+          ctx.fillText(fmt(totalActive), x, y);
+          ctx.fillStyle = TEXT_DIM;
+          ctx.font = '500 11px Inter, sans-serif';
+          ctx.fillText('Active locations', x, y + 22);
+          ctx.restore();
+        },
+      }],
+    });
+  }
+
   function renderTimeline(items = []) {
     const root = document.getElementById('timeline-list');
     if (!root) return;
@@ -803,6 +887,7 @@
       buildLocationChart(data.locations || []);
       buildSpreadChart(data.history_snapshots, data);
       buildCfrChart(data.totals || {});
+      buildTierChart(data.locations || []);
       renderTimeline(data.timeline);
       // Prefer the model's refreshed historical_context over the static file
       renderContext(data.historical_context || history);
