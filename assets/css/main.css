@@ -417,6 +417,8 @@ button { font: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.chart-card.wide { grid-column: 1 / -1; }
+.chart-card.wide .chart-canvas { height: 360px; }
 .chart-card {
   padding: 22px;
   border: 1px solid var(--border);

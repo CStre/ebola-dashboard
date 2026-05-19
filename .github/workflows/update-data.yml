@@ -2,7 +2,11 @@ name: Update outbreak data
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    # 12:00 UTC = 08:00 ET (EDT) / 07:00 ET (EST)
+    # 22:00 UTC = 18:00 ET (EDT) / 17:00 ET (EST)
+    # Cron has no timezone support — these float by 1h across DST boundaries.
+    - cron: '0 12 * * *'
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:

@@ -118,11 +118,11 @@
           <div class="chart-canvas"><canvas id="chart-cumulative"></canvas></div>
         </div>
         <div class="chart-card reveal">
-          <h3>Active locations</h3>
+          <h3 id="chart-locations-title">Cases by location</h3>
           <div class="chart-canvas"><canvas id="chart-by-location"></canvas></div>
         </div>
-        <div class="chart-card reveal">
-          <h3>Health zones affected over time</h3>
+        <div class="chart-card reveal wide">
+          <h3>Geographic spread over time</h3>
           <div class="chart-canvas"><canvas id="chart-zones"></canvas></div>
         </div>
         <div class="chart-card reveal">
@@ -135,7 +135,7 @@
     <section class="container section" id="news">
       <div class="section-head reveal">
         <h2>Recent news</h2>
-        <p>Cross-referenced headlines from WHO, CDC, Africa CDC, Reuters, AP, Al Jazeera, UN News and more. Refreshed every four hours.</p>
+        <p id="news-sub">Loading sources…</p>
       </div>
       <div class="news-grid reveal" id="news-grid"></div>
     </section>

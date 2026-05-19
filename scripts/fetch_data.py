@@ -40,19 +40,24 @@ CDC, government health ministry releases, and major wire services."""
 
 USER_TEMPLATE = """Search the web for the latest official figures on the 2026 \
 Ebola disease outbreak (Bundibugyo virus) in the Democratic Republic of the Congo \
-(DRC) and Uganda.
+(DRC) and Uganda — including any spread to additional countries.
 
 CROSS-REFERENCE REQUIREMENT
 You MUST consult at least 6 distinct sources, including AT LEAST 3 primary sources \
-(WHO, CDC, Africa CDC, DRC MoH/INRB, Uganda MoH). Only include a headline figure if \
-it is confirmed by two or more independent sources, or by one authoritative primary \
-source (WHO DON or Africa CDC briefing).
+(WHO, CDC, Africa CDC, DRC MoH/INRB, Uganda MoH, or peer-reviewed publications). \
+Only include a headline figure if it is confirmed by two or more independent \
+sources, or by one authoritative primary source (WHO DON or Africa CDC briefing). \
+Prefer the most recent authoritative figure.
 
-Search across these source families:
-  - Primary: who.int, cdc.gov, africacdc.org, inrb.cd, health.go.ug
-  - Wire: reuters.com, apnews.com, afp.com, aljazeera.com
-  - News: bbc.com, nytimes.com, washingtonpost.com, cnn.com, nbcnews.com
-  - UN system: news.un.org, ocha.org, unicef.org
+Search across these source families (use whichever are most current and relevant):
+  - Primary public health: who.int, cdc.gov, africacdc.org, ecdc.europa.eu, inrb.cd, health.go.ug, and the health ministry of any newly affected country
+  - Scholarly & scientific: nejm.org, thelancet.com, nature.com, science.org, bmj.com, jamanetwork.com, plos.org, elifesciences.org, medrxiv.org, biorxiv.org, statnews.com, pubmed.ncbi.nlm.nih.gov
+  - Wire services: reuters.com, apnews.com, afp.com, bloomberg.com
+  - Major news: bbc.com, nytimes.com, washingtonpost.com, ft.com, cnn.com, nbcnews.com, aljazeera.com
+  - UN system & humanitarian: news.un.org, reliefweb.int, ocha.org, unicef.org, msf.org
+
+If the outbreak has spread beyond DRC and Uganda, search additionally for the most \
+authoritative health agency in each newly affected country.
 
 Return a SINGLE JSON object with this exact shape:
 
@@ -62,10 +67,12 @@ Return a SINGLE JSON object with this exact shape:
     "data_sources": [
       "<source label> (<domain>, <YYYY-MM-DD>) <canonical URL>"
     ],
+    "top_publications": ["<3-5 short publication names, e.g. WHO, CDC, Africa CDC, Reuters, The Lancet>"],
     "cross_references": {{
       "confirmations_for_totals": <int — how many independent sources confirmed the headline totals>,
-      "primary_count": <int — how many primary sources (WHO/CDC/Africa CDC/MoH) you consulted>,
+      "primary_count": <int — how many primary sources (WHO/CDC/Africa CDC/MoH/scholarly) you consulted>,
       "wire_count": <int — wire/news sources consulted>,
+      "scholarly_count": <int — peer-reviewed or scientific sources consulted, may be 0>,
       "notes": "<one short sentence about agreement or discrepancies between sources>"
     }}
   }},
@@ -82,11 +89,14 @@ Return a SINGLE JSON object with this exact shape:
       "id": "<slug>",
       "name": "<city or health zone>",
       "region": "<province or region>",
-      "country": "<DRC or Uganda or ...>",
+      "country": "<country name>",
       "lat": <float>, "lon": <float>,
       "status": "active" | "retracted" | "resolved",
       "tier": "epicenter" | "high" | "new" | "international" | "retracted",
       "first_reported": "YYYY-MM-DD",
+      "confirmed_cases": <int — confirmed cases AT THIS LOCATION, omit if unknown>,
+      "suspected_cases": <int — suspected cases AT THIS LOCATION, omit if unknown>,
+      "deaths": <int — deaths AT THIS LOCATION, omit if unknown>,
       "notes": "<one-sentence description grounded in your sources>"
     }}
   ],
@@ -106,33 +116,71 @@ Return a SINGLE JSON object with this exact shape:
     {{
       "title": "<headline, max 110 chars>",
       "summary": "<2-sentence summary, max 240 chars>",
-      "source": "<publication name, e.g. WHO, Reuters, Al Jazeera>",
+      "source": "<publication name>",
       "url": "<canonical article URL>",
       "date": "<YYYY-MM-DD>",
       "tags": ["<short tag>", "..."]
     }}
-  ]
+  ],
+  "historical_context": {{
+    "background": {{
+      "virus": "<verified or updated>",
+      "family": "<verified>",
+      "genus": "<verified>",
+      "discovery": "<verified or updated>",
+      "case_fatality_rate_historical": "<verified or updated, percentage range>",
+      "transmission": "<verified or updated>",
+      "incubation_days": "<verified or updated>",
+      "symptoms": "<verified or updated>",
+      "vaccines_therapeutics": "<CURRENT status of any approved or candidate vaccines/therapeutics for Bundibugyo specifically>"
+    }},
+    "past_outbreaks": [
+      {{ "year": "<YYYY or YYYY-YYYY>", "location": "<country/region>", "cases": <int>, "deaths": <int>, "cfr": "<percentage>", "notes": "<one sentence>" }}
+    ],
+    "why_this_matters": ["<bullet>", "..."]
+  }}
 }}
 
 Rules:
   - Provide 8–12 news items, dated within the last 7 days, sorted newest first.
   - Each news item must be from a distinct article (no duplicates across sources).
   - Tag news items with short labels like "WHO", "Confirmed case", "Vaccine", \
-"Travel", "Containment", "Funding".
+"Travel", "Containment", "Funding", "Research".
   - Use "tier": "new" for any location first reported in the last 24 hours. Use \
-"international" for locations outside DRC. Use "retracted" for disconfirmed cases.
+"international" for locations outside the country of origin. Use "retracted" for \
+disconfirmed cases.
   - Omit any field for which you have no confirmed source rather than fabricating.
+  - For historical_context: VERIFY the previous background facts against current \
+authoritative sources. If something has changed (e.g. a vaccine candidate gained \
+emergency approval, a new past-outbreak entry should be added, the consensus CFR \
+has shifted), update it. Otherwise return the verified values unchanged. \
+"why_this_matters" should reflect the CURRENT moment of the outbreak.
+  - top_publications should list the 3-5 most prominent / most-cited publications \
+this run, in order of authority and relevance.
 
-For context, the previously reported totals (as of {prev_updated}) were:
+PREVIOUS HISTORICAL CONTEXT (verify and update as needed):
+{prev_history}
+
+PREVIOUS TOTALS (as of {prev_updated}) for context:
 {prev_totals}
 
 Today's date is {today}. Output JSON only, no surrounding text or fences.
 """
 
 
+HISTORY_PATH = ROOT / "data" / "history.json"
+
+
 def load_existing() -> dict:
     if DATA_PATH.exists():
         with DATA_PATH.open() as f:
+            return json.load(f)
+    return {}
+
+
+def load_history() -> dict:
+    if HISTORY_PATH.exists():
+        with HISTORY_PATH.open() as f:
             return json.load(f)
     return {}
 
@@ -173,7 +221,7 @@ def extract_json(text: str) -> dict:
     return json.loads(text[start:end])
 
 
-def call_claude(existing: dict) -> dict:
+def call_claude(existing: dict, prev_history: dict) -> dict:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise SystemExit("ANTHROPIC_API_KEY is not set")
@@ -185,9 +233,15 @@ def call_claude(existing: dict) -> dict:
     prev_updated = existing.get("meta", {}).get("last_updated", "(unknown)")
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
+    # Prefer the model's most recent historical_context (kept in outbreak.json),
+    # falling back to the static history.json on first run.
+    prior_context = existing.get("historical_context") or prev_history or {}
+    prev_history_str = json.dumps(prior_context, indent=2) if prior_context else "(none)"
+
     user_message = USER_TEMPLATE.format(
         prev_totals=prev_totals,
         prev_updated=prev_updated,
+        prev_history=prev_history_str,
         today=today,
     )
 
@@ -236,14 +290,28 @@ def call_claude(existing: dict) -> dict:
     return extract_json(raw)
 
 
+def _next_scheduled_run(now: datetime) -> datetime:
+    """Return the next scheduled cron firing time (12:00 or 22:00 UTC)."""
+    candidates = [now.replace(hour=12, minute=0, second=0, microsecond=0),
+                  now.replace(hour=22, minute=0, second=0, microsecond=0)]
+    for c in candidates:
+        if c > now:
+            return c
+    # both already passed today; next is tomorrow at 12:00 UTC
+    return candidates[0] + timedelta(days=1)
+
+
 def merge(existing: dict, fresh: dict) -> dict:
     """Merge the fresh model output with the existing data file structure."""
     out = dict(existing) if existing else {}
 
+    prev_meta = dict(out.get("meta", {}))                 # snapshot BEFORE we mutate it
+    prev_last_updated = prev_meta.get("last_updated")     # used for totals_previous.as_of
+
     meta = out.get("meta", {})
     fresh_meta = fresh.get("meta", {})
     now = datetime.now(timezone.utc)
-    next_update = now + timedelta(hours=4)
+    next_update = _next_scheduled_run(now)
     meta.update({
         "last_updated": fresh_meta.get("last_updated") or now.isoformat(timespec="seconds"),
         "next_update": next_update.isoformat(timespec="seconds"),
@@ -252,11 +320,15 @@ def merge(existing: dict, fresh: dict) -> dict:
         "phase": meta.get("phase", "Public Health Emergency of International Concern (PHEIC)"),
         "declared_at": meta.get("declared_at", "2026-05-17T00:00:00Z"),
     })
+    if fresh_meta.get("top_publications"):
+        meta["top_publications"] = fresh_meta["top_publications"]
+    if fresh_meta.get("cross_references"):
+        meta["cross_references"] = fresh_meta["cross_references"]
     out["meta"] = meta
 
     out["totals_previous"] = {
         **(out.get("totals") or {}),
-        "as_of": (out.get("meta", {}) or {}).get("last_updated"),
+        "as_of": prev_last_updated,
     }
     if "totals" in fresh:
         out["totals"] = fresh["totals"]
@@ -270,10 +342,8 @@ def merge(existing: dict, fresh: dict) -> dict:
     if fresh.get("news"):
         out["news"] = fresh["news"]
 
-    fresh_meta = fresh.get("meta", {})
-    if fresh_meta.get("cross_references"):
-        meta["cross_references"] = fresh_meta["cross_references"]
-        out["meta"] = meta
+    if fresh.get("historical_context"):
+        out["historical_context"] = fresh["historical_context"]
 
     timeline = list(out.get("timeline") or [])
     existing_events = {(t.get("date"), t.get("event")) for t in timeline}
@@ -303,8 +373,9 @@ def merge(existing: dict, fresh: dict) -> dict:
 
 def main() -> int:
     existing = load_existing()
+    prev_history = load_history()
     try:
-        fresh = call_claude(existing)
+        fresh = call_claude(existing, prev_history)
     except Exception as e:
         print(f"ERROR calling Claude: {e}", file=sys.stderr)
         return 1

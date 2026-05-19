@@ -4,6 +4,8 @@
   const DATA_URL = 'data/outbreak.json';
   const HISTORY_URL = 'data/history.json';
   const REFRESH_MS = 30 * 60 * 1000;
+  const DISPLAY_TZ = 'America/New_York';
+  const SCHEDULE_LABEL = 'twice daily (8 AM &amp; 6 PM ET)';
 
   const ACCENT = '#ff5252';
   const ACCENT_2 = '#ff8a3d';
@@ -11,6 +13,7 @@
   const WARN = '#ffb547';
   const OK = '#4ade80';
   const TEXT_DIM = '#a3adc2';
+  const TEXT = '#e8ecf5';
   const GRID = 'rgba(255,255,255,0.06)';
 
   Chart.defaults.color = TEXT_DIM;
@@ -22,10 +25,12 @@
   const fmtDate = (iso) => {
     if (!iso) return '—';
     const d = new Date(iso);
-    return d.toLocaleString(undefined, {
+    if (isNaN(d.getTime())) return '—';
+    return d.toLocaleString('en-US', {
+      timeZone: DISPLAY_TZ,
       month: 'short', day: 'numeric',
       hour: 'numeric', minute: '2-digit',
-      hour12: false,
+      hour12: true,
       timeZoneName: 'short',
     });
   };
@@ -141,18 +146,53 @@
     Object.entries(footers).forEach(([id, text]) => setText(id, text));
   }
 
+  function topPublications(data, max = 4) {
+    const meta = data.meta || {};
+    if (Array.isArray(meta.top_publications) && meta.top_publications.length) {
+      return meta.top_publications.slice(0, max);
+    }
+    // Fallback: parse the labels in data_sources for publication prefixes.
+    const seen = new Set();
+    const out = [];
+    (meta.data_sources || []).forEach((line) => {
+      const head = String(line).split('(')[0].split(':')[0].trim();
+      const name = head.split(/[-—]/)[0].trim();
+      if (name && !seen.has(name) && name.length < 30) {
+        seen.add(name);
+        out.push(name);
+      }
+    });
+    return out.slice(0, max);
+  }
+
+  function joinList(items) {
+    if (!items || items.length === 0) return '';
+    if (items.length === 1) return items[0];
+    if (items.length === 2) return `${items[0]} and ${items[1]}`;
+    return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+  }
+
   function renderHeroMeta(data) {
     const meta = data.meta || {};
     const phase = meta.phase || 'Active outbreak';
     const declared = meta.declared_at ? new Date(meta.declared_at) : null;
     const declaredStr = declared && !isNaN(declared)
-      ? declared.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })
+      ? declared.toLocaleDateString('en-US', { timeZone: DISPLAY_TZ, day: 'numeric', month: 'long', year: 'numeric' })
       : null;
     setText('hero-eyebrow-text', declaredStr ? `${phase} · declared ${declaredStr}` : phase);
 
     const countries = listCountries(data);
-    const sub = `A real-time tracker for the 2026 outbreak across ${countries}. Data refreshed every four hours from WHO, CDC, Africa CDC, and other credible sources.`;
-    setText('hero-sub', sub);
+    const pubs = topPublications(data, 4);
+    const pubsStr = pubs.length ? joinList(pubs) : 'WHO, CDC, Africa CDC';
+    const sub = document.getElementById('hero-sub');
+    if (sub) {
+      sub.innerHTML = `A real-time tracker for the 2026 outbreak across <strong>${countries}</strong>. Data refreshed ${SCHEDULE_LABEL} from <strong>${pubsStr}</strong> and other credible sources.`;
+    }
+
+    const newsSub = document.getElementById('news-sub');
+    if (newsSub) {
+      newsSub.innerHTML = `Cross-referenced headlines from <strong>${pubsStr}</strong> and more. Refreshed ${SCHEDULE_LABEL}.`;
+    }
   }
 
   function renderAlerts(alerts = []) {
@@ -231,13 +271,26 @@
     }
   }
 
+  // Track Chart.js instances so re-renders don't leak/stack.
+  const _charts = {};
+
+  function gradientFill(ctx, color) {
+    const chartArea = ctx.chart && ctx.chart.chartArea;
+    if (!chartArea) return color;
+    const g = ctx.chart.ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+    g.addColorStop(0, color.replace(/,\s*[\d.]+\)$/, ',0.35)'));
+    g.addColorStop(1, color.replace(/,\s*[\d.]+\)$/, ',0)'));
+    return g;
+  }
+
   function buildCumulativeChart(snapshots = []) {
-    const ctx = document.getElementById('chart-cumulative');
-    if (!ctx) return;
+    const el = document.getElementById('chart-cumulative');
+    if (!el) return;
+    if (_charts.cumulative) _charts.cumulative.destroy();
     const labels = snapshots.map((s) => s.date);
-    const cases = snapshots.map((s) => s.confirmed + s.suspected);
-    const deaths = snapshots.map((s) => s.deaths);
-    new Chart(ctx, {
+    const cases = snapshots.map((s) => (s.confirmed || 0) + (s.suspected || 0));
+    const deaths = snapshots.map((s) => s.deaths || 0);
+    _charts.cumulative = new Chart(el, {
       type: 'line',
       data: {
         labels,
@@ -246,23 +299,27 @@
             label: 'Cases (confirmed + suspected)',
             data: cases,
             borderColor: ACCENT_2,
-            backgroundColor: 'rgba(255,138,61,0.12)',
+            backgroundColor: (ctx) => gradientFill(ctx, 'rgba(255,138,61,1)'),
             fill: true,
-            tension: 0.35,
+            tension: 0.4,
             borderWidth: 2.5,
             pointRadius: 4,
             pointBackgroundColor: ACCENT_2,
+            pointBorderColor: '#0a0e1a',
+            pointBorderWidth: 2,
           },
           {
             label: 'Deaths',
             data: deaths,
             borderColor: ACCENT,
-            backgroundColor: 'rgba(255,82,82,0.10)',
+            backgroundColor: (ctx) => gradientFill(ctx, 'rgba(255,82,82,1)'),
             fill: true,
-            tension: 0.35,
+            tension: 0.4,
             borderWidth: 2.5,
             pointRadius: 4,
             pointBackgroundColor: ACCENT,
+            pointBorderColor: '#0a0e1a',
+            pointBorderWidth: 2,
           },
         ],
       },
@@ -270,71 +327,236 @@
         responsive: true,
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
-        plugins: { legend: { labels: { boxWidth: 10 } } },
+        plugins: {
+          legend: { labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+          tooltip: {
+            backgroundColor: '#0f1424',
+            borderColor: 'rgba(255,255,255,0.14)',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: true,
+            titleColor: TEXT,
+            bodyColor: TEXT_DIM,
+            cornerRadius: 8,
+          },
+        },
         scales: {
           x: { grid: { color: GRID }, ticks: { color: TEXT_DIM } },
-          y: { grid: { color: GRID }, ticks: { color: TEXT_DIM }, beginAtZero: true },
+          y: { grid: { color: GRID }, ticks: { color: TEXT_DIM, precision: 0 }, beginAtZero: true },
         },
       },
     });
   }
 
   function buildLocationChart(locations = []) {
-    const ctx = document.getElementById('chart-by-location');
-    if (!ctx) return;
+    const el = document.getElementById('chart-by-location');
+    const titleEl = document.getElementById('chart-locations-title');
+    if (!el) return;
+    if (_charts.byLocation) _charts.byLocation.destroy();
+
     const active = locations.filter((l) => l.status === 'active');
-    const labels = active.map((l) => l.name);
-    const data = active.map(() => 1);
-    new Chart(ctx, {
+    if (active.length === 0) return;
+
+    const hasCaseCounts = active.some((l) =>
+      typeof l.confirmed_cases === 'number' || typeof l.suspected_cases === 'number'
+    );
+
+    let datasets;
+    let xTitle;
+    if (hasCaseCounts) {
+      const sorted = [...active].sort((a, b) => {
+        const totalA = (a.confirmed_cases || 0) + (a.suspected_cases || 0);
+        const totalB = (b.confirmed_cases || 0) + (b.suspected_cases || 0);
+        return totalB - totalA;
+      });
+      const labels = sorted.map((l) => `${l.name}, ${l.country}`);
+      datasets = [
+        {
+          label: 'Confirmed',
+          data: sorted.map((l) => l.confirmed_cases || 0),
+          backgroundColor: ACCENT_2,
+          borderRadius: 4,
+          borderSkipped: false,
+          stack: 'cases',
+        },
+        {
+          label: 'Suspected',
+          data: sorted.map((l) => l.suspected_cases || 0),
+          backgroundColor: 'rgba(255,138,61,0.35)',
+          borderRadius: 4,
+          borderSkipped: false,
+          stack: 'cases',
+        },
+      ];
+      xTitle = 'Cases by location';
+      _renderChartLocations(el, labels, datasets, sorted, true);
+    } else {
+      // Fallback: days since first reported, color-coded by tier.
+      const today = new Date();
+      const sorted = [...active]
+        .map((l) => {
+          const days = l.first_reported
+            ? Math.max(0, Math.round((today - new Date(l.first_reported)) / 86400000))
+            : 0;
+          return { ...l, _days: days };
+        })
+        .sort((a, b) => b._days - a._days);
+      const labels = sorted.map((l) => `${l.name}, ${l.country}`);
+      datasets = [{
+        label: 'Days since first reported',
+        data: sorted.map((l) => l._days),
+        backgroundColor: sorted.map((l) => {
+          const t = tierToClass(l.tier);
+          return t === 'new' ? ACCENT : t === 'intl' ? INFO : t === 'high' ? ACCENT_2 : '#ffb547';
+        }),
+        borderRadius: 4,
+        borderSkipped: false,
+      }];
+      xTitle = 'Days since first reported';
+      _renderChartLocations(el, labels, datasets, sorted, false);
+    }
+
+    if (titleEl) titleEl.textContent = xTitle;
+  }
+
+  function _renderChartLocations(el, labels, datasets, items, stacked) {
+    _charts.byLocation = new Chart(el, {
       type: 'bar',
-      data: {
-        labels,
-        datasets: [{
-          label: 'Active locations',
-          data,
-          backgroundColor: active.map((l) => {
-            const t = tierToClass(l.tier);
-            return t === 'new' ? ACCENT : t === 'intl' ? INFO : t === 'high' ? ACCENT_2 : WARN;
-          }),
-          borderRadius: 6,
-          barPercentage: 0.7,
-        }],
-      },
+      data: { labels, datasets },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         indexAxis: 'y',
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => active[c.dataIndex].notes || '' } } },
+        plugins: {
+          legend: { display: stacked, labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+          tooltip: {
+            backgroundColor: '#0f1424',
+            borderColor: 'rgba(255,255,255,0.14)',
+            borderWidth: 1,
+            padding: 12,
+            titleColor: TEXT,
+            bodyColor: TEXT_DIM,
+            cornerRadius: 8,
+            callbacks: {
+              afterBody: (ctxs) => {
+                const idx = ctxs[0].dataIndex;
+                const item = items[idx];
+                return item && item.notes ? '\n' + item.notes : '';
+              },
+            },
+          },
+        },
         scales: {
-          x: { display: false, beginAtZero: true },
-          y: { grid: { display: false }, ticks: { color: TEXT_DIM } },
+          x: {
+            stacked,
+            grid: { color: GRID },
+            ticks: { color: TEXT_DIM, precision: 0 },
+            beginAtZero: true,
+          },
+          y: {
+            stacked,
+            grid: { display: false },
+            ticks: { color: TEXT_DIM },
+          },
         },
       },
     });
   }
 
-  function buildZonesChart(snapshots = []) {
-    const ctx = document.getElementById('chart-zones');
-    if (!ctx) return;
-    new Chart(ctx, {
-      type: 'bar',
+  function buildSpreadChart(snapshots = [], data = {}) {
+    const el = document.getElementById('chart-zones');
+    if (!el) return;
+    if (_charts.spread) _charts.spread.destroy();
+
+    // We have history_snapshots for zones; estimate locations/countries from
+    // current data and history if not stored. For a clean multi-metric line
+    // we plot what we have: zones, plus deaths and confirmed for context.
+    const labels = snapshots.map((s) => s.date);
+    const zones = snapshots.map((s) => s.health_zones || 0);
+    const confirmed = snapshots.map((s) => s.confirmed || 0);
+    const deaths = snapshots.map((s) => s.deaths || 0);
+
+    _charts.spread = new Chart(el, {
+      type: 'line',
       data: {
-        labels: snapshots.map((s) => s.date),
-        datasets: [{
-          label: 'Health zones affected',
-          data: snapshots.map((s) => s.health_zones),
-          backgroundColor: INFO,
-          borderRadius: 8,
-          barPercentage: 0.5,
-        }],
+        labels,
+        datasets: [
+          {
+            label: 'Health zones affected',
+            data: zones,
+            borderColor: INFO,
+            backgroundColor: 'rgba(90,169,255,0.0)',
+            borderWidth: 2.5,
+            tension: 0.35,
+            pointRadius: 4,
+            pointBackgroundColor: INFO,
+            pointBorderColor: '#0a0e1a',
+            pointBorderWidth: 2,
+            yAxisID: 'yZones',
+          },
+          {
+            label: 'Confirmed cases',
+            data: confirmed,
+            borderColor: ACCENT_2,
+            backgroundColor: 'rgba(255,138,61,0.0)',
+            borderWidth: 2.5,
+            tension: 0.35,
+            pointRadius: 4,
+            pointBackgroundColor: ACCENT_2,
+            pointBorderColor: '#0a0e1a',
+            pointBorderWidth: 2,
+            yAxisID: 'yCases',
+          },
+          {
+            label: 'Deaths',
+            data: deaths,
+            borderColor: ACCENT,
+            backgroundColor: 'rgba(255,82,82,0.0)',
+            borderWidth: 2.5,
+            borderDash: [4, 4],
+            tension: 0.35,
+            pointRadius: 4,
+            pointBackgroundColor: ACCENT,
+            pointBorderColor: '#0a0e1a',
+            pointBorderWidth: 2,
+            yAxisID: 'yCases',
+          },
+        ],
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+          tooltip: {
+            backgroundColor: '#0f1424',
+            borderColor: 'rgba(255,255,255,0.14)',
+            borderWidth: 1,
+            padding: 12,
+            titleColor: TEXT,
+            bodyColor: TEXT_DIM,
+            cornerRadius: 8,
+          },
+        },
         scales: {
           x: { grid: { color: GRID }, ticks: { color: TEXT_DIM } },
-          y: { grid: { color: GRID }, ticks: { color: TEXT_DIM }, beginAtZero: true },
+          yZones: {
+            type: 'linear',
+            position: 'left',
+            grid: { color: GRID },
+            ticks: { color: INFO, precision: 0 },
+            title: { display: true, text: 'Health zones', color: TEXT_DIM },
+            beginAtZero: true,
+          },
+          yCases: {
+            type: 'linear',
+            position: 'right',
+            grid: { display: false },
+            ticks: { color: ACCENT_2, precision: 0 },
+            title: { display: true, text: 'Cases / deaths', color: TEXT_DIM },
+            beginAtZero: true,
+          },
         },
       },
     });
@@ -343,11 +565,12 @@
   function buildCfrChart(totals) {
     const ctx = document.getElementById('chart-cfr');
     if (!ctx) return;
-    const total = totals.confirmed + totals.suspected;
-    const deaths = totals.deaths;
+    if (_charts.cfr) _charts.cfr.destroy();
+    const total = (totals.confirmed || 0) + (totals.suspected || 0);
+    const deaths = totals.deaths || 0;
     const surviving = Math.max(0, total - deaths);
     const cfr = total > 0 ? ((deaths / total) * 100).toFixed(1) : '—';
-    const chart = new Chart(ctx, {
+    _charts.cfr = new Chart(ctx, {
       type: 'doughnut',
       data: {
         labels: ['Deaths', 'Alive / unknown outcome'],
@@ -363,7 +586,16 @@
         maintainAspectRatio: false,
         cutout: '72%',
         plugins: {
-          legend: { position: 'bottom', labels: { boxWidth: 10 } },
+          legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+          tooltip: {
+            backgroundColor: '#0f1424',
+            borderColor: 'rgba(255,255,255,0.14)',
+            borderWidth: 1,
+            padding: 12,
+            titleColor: TEXT,
+            bodyColor: TEXT_DIM,
+            cornerRadius: 8,
+          },
         },
       },
       plugins: [{
@@ -384,7 +616,6 @@
         },
       }],
     });
-    return chart;
   }
 
   function renderTimeline(items = []) {
@@ -408,7 +639,8 @@
         ['Family', facts.family],
         ['Discovered', facts.discovery],
         ['Historic CFR', facts.case_fatality_rate_historical],
-        ['Incubation', facts.incubation_days ? `${facts.incubation_days} days` : ''],
+        ['Incubation', facts.incubation_days ? `${facts.incubation_days}${/\d/.test(String(facts.incubation_days)) && !/day/i.test(String(facts.incubation_days)) ? ' days' : ''}` : ''],
+        ['Vaccines / therapeutics', facts.vaccines_therapeutics],
       ];
       factsList.forEach(([k, v]) => {
         if (!v) return;
@@ -568,11 +800,12 @@
       renderAlerts(data.alerts);
       buildMap(data.locations);
       buildCumulativeChart(data.history_snapshots);
-      buildLocationChart(data.locations);
-      buildZonesChart(data.history_snapshots);
+      buildLocationChart(data.locations || []);
+      buildSpreadChart(data.history_snapshots, data);
       buildCfrChart(data.totals || {});
       renderTimeline(data.timeline);
-      renderContext(history);
+      // Prefer the model's refreshed historical_context over the static file
+      renderContext(data.historical_context || history);
       renderNews(data.news || []);
       renderSources(data);
 

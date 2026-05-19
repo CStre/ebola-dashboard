@@ -9,7 +9,7 @@ A static, single-page dashboard tracking the 2026 Ebola Bundibugyo outbreak in D
 - **Live site**: https://cstre.github.io/ebola-dashboard/
 - **Repo**: https://github.com/CStre/ebola-dashboard
 - **Hosting**: GitHub Pages, deploys from `main` branch root
-- **Refresh cadence**: every 4h via GitHub Actions cron (also `workflow_dispatch`-able)
+- **Refresh cadence**: twice daily via GitHub Actions cron — 12:00 UTC (~8 AM ET) and 22:00 UTC (~6 PM ET). Times float 1h across DST since cron has no TZ support. Also `workflow_dispatch`-able.
 
 ## Stack
 
@@ -63,31 +63,41 @@ The frontend reads this. The fetcher writes this. Keys the model produces fresh 
 {
   "meta": {
     "last_updated": "ISO 8601 UTC",
-    "next_update": "ISO 8601 UTC (set by fetcher = now+4h)",
+    "next_update": "ISO 8601 UTC (fetcher sets to the next 12:00/22:00 UTC firing)",
     "disease": "Ebola disease (Bundibugyo virus)",
     "phase": "PHEIC label",
     "declared_at": "ISO 8601",
     "data_sources": ["Label (domain, YYYY-MM-DD) URL", ...],
+    "top_publications": ["WHO", "Africa CDC", "CDC", "Reuters", "The Lancet"],  // 3-5; drives hero & news subtitles
     "cross_references": {
       "confirmations_for_totals": <int>,
       "primary_count": <int>,
       "wire_count": <int>,
+      "scholarly_count": <int>,
       "notes": "<analyst note on agreement/divergence>"
     }
   },
   "totals": { "confirmed", "suspected", "deaths", "health_zones_affected", "countries_with_cases", "healthcare_worker_deaths" },
-  "totals_previous": { same shape + "as_of" — set by fetcher BEFORE writing new totals },
+  "totals_previous": { same shape + "as_of" — set by fetcher BEFORE writing new totals (as_of = previous run's last_updated) },
   "locations": [
     { "id", "name", "region", "country", "lat", "lon",
       "status": "active|retracted|resolved",
       "tier": "epicenter|high|new|international|retracted",
       "first_reported": "YYYY-MM-DD",
+      "confirmed_cases": <int — optional, per-location>,
+      "suspected_cases": <int — optional, per-location>,
+      "deaths": <int — optional, per-location>,
       "notes": "<one sentence>" }
   ],
   "timeline": [ { "date": "YYYY-MM-DD", "event": "<≤240 chars>" } ],  // merged across runs, deduped
   "history_snapshots": [ { "date", "confirmed", "suspected", "deaths", "health_zones" } ],  // one per day, last write wins
   "alerts": [ { "level": "critical|warning|info", "title", "body", "source", "url" } ],
-  "news": [ { "title", "summary", "source", "url", "date", "tags": [] } ]  // 8–12 items, last 7 days
+  "news": [ { "title", "summary", "source", "url", "date", "tags": [] } ],  // 8–12 items, last 7 days
+  "historical_context": {
+    "background": { "virus", "family", "genus", "discovery", "case_fatality_rate_historical", "transmission", "incubation_days", "symptoms", "vaccines_therapeutics" },
+    "past_outbreaks": [ {"year", "location", "cases", "deaths", "cfr", "notes"} ],
+    "why_this_matters": ["<bullet>"]
+  }
 }
 ```
 
@@ -102,7 +112,8 @@ The model returns `timeline_additions` (not `timeline`); the fetcher merges thos
 
 ## history.json schema
 
-Static (commit-time edits only):
+Static fallback only — used on first load if `outbreak.json` doesn't yet have a `historical_context` block. After the first refresh the model maintains `outbreak.json#historical_context` on every run.
+
 ```jsonc
 {
   "background": { "virus", "family", "genus", "discovery", "case_fatality_rate_historical", "transmission", "incubation_days", "symptoms" },
@@ -113,9 +124,9 @@ Static (commit-time edits only):
 
 ## What is dynamic vs static
 
-**Auto-refreshed every 4h (outbreak.json):** status pill, hero eyebrow text, hero sub, timestamps, all 4 stat cards (values + delta badges + footers), alerts, map markers + popups, all 4 charts, news grid, timeline, source summary cards, source list, footer timestamp.
+**Auto-refreshed twice daily (outbreak.json):** status pill, hero eyebrow, hero sub (injects active countries + top publications), news section subtitle (top publications), timestamps in `America/New_York`, all 4 stat cards (values + delta badges + footers), alerts, map markers + popups, all 4 charts, news grid, timeline, source summary cards, source list, historical context (background facts + past outbreaks + why-this-matters), footer timestamp.
 
-**Commit-time static (history.json):** "About the virus" facts, "Past outbreaks" list, "Why this outbreak is different" bullets.
+**Static fallback (history.json):** Only used before the first refresh writes a `historical_context` block into outbreak.json.
 
 **Hardcoded in HTML:** page title, brand (`BDBV Tracker`), nav labels, hero headline ("Ebola Bundibugyo outbreak, live."), section H2s + subtitles, stat card labels ("Confirmed cases" etc.), chart titles, map legend, footer disclaimer.
 
