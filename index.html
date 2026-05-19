@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebola Bundibugyo Outbreak Tracker — Live Dashboard</title>
+  <meta name="description" content="Live dashboard tracking the 2026 Ebola (Bundibugyo virus) outbreak in DRC and Uganda. Auto-updated every 4 hours from WHO, CDC, and credible sources." />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <span class="pulse-dot"></span>
+        </div>
+        <div class="brand-text">
+          <strong>BDBV Tracker</strong>
+          <span>Ebola Bundibugyo · Live</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#map">Map</a>
+        <a href="#trends">Trends</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#context">Context</a>
+      </nav>
+      <div class="status" id="status-pill">
+        <span class="status-dot"></span>
+        <span class="status-text">Loading…</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner reveal">
+        <span class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          PHEIC declared · 17 May 2026
+        </span>
+        <h1 class="hero-title">
+          Ebola <span class="accent">Bundibugyo</span><br />
+          outbreak, live.
+        </h1>
+        <p class="hero-sub">
+          A real-time tracker for the 2026 outbreak across the Democratic Republic of the Congo and Uganda. Data refreshed every four hours from WHO, CDC, and other credible sources.
+        </p>
+        <div class="hero-meta">
+          <span>Last update <strong id="last-updated">—</strong></span>
+          <span>Next refresh <strong id="next-update">—</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="stat-grid reveal">
+        <article class="stat-card" data-tone="confirmed">
+          <header><span>Confirmed cases</span><span class="badge" id="badge-confirmed">—</span></header>
+          <div class="stat-value" data-counter id="stat-confirmed">0</div>
+          <footer>Lab-confirmed Bundibugyo virus</footer>
+        </article>
+        <article class="stat-card" data-tone="suspected">
+          <header><span>Suspected cases</span><span class="badge" id="badge-suspected">—</span></header>
+          <div class="stat-value" data-counter id="stat-suspected">0</div>
+          <footer>Awaiting laboratory confirmation</footer>
+        </article>
+        <article class="stat-card" data-tone="deaths">
+          <header><span>Reported deaths</span><span class="badge" id="badge-deaths">—</span></header>
+          <div class="stat-value" data-counter id="stat-deaths">0</div>
+          <footer>Including 4 healthcare workers</footer>
+        </article>
+        <article class="stat-card" data-tone="zones">
+          <header><span>Health zones affected</span><span class="badge" id="badge-zones">—</span></header>
+          <div class="stat-value" data-counter id="stat-zones">0</div>
+          <footer>Across DRC &amp; Uganda</footer>
+        </article>
+      </div>
+
+      <div class="alerts reveal" id="alerts"></div>
+    </section>
+
+    <section class="container section" id="map">
+      <div class="section-head reveal">
+        <h2>Outbreak map</h2>
+        <p>Interactive geographic view. Click any marker for details. Red markers indicate sites added in the most recent reporting period.</p>
+      </div>
+      <div class="map-wrap reveal">
+        <div id="leaflet-map" role="region" aria-label="Interactive outbreak map"></div>
+        <div class="map-legend">
+          <span><i class="dot dot-new"></i>New (last 24h)</span>
+          <span><i class="dot dot-high"></i>Active hotspot</span>
+          <span><i class="dot dot-intl"></i>International</span>
+          <span><i class="dot dot-retracted"></i>Retracted</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="trends">
+      <div class="section-head reveal">
+        <h2>Trends &amp; visualisations</h2>
+        <p>How the outbreak is evolving over time and across locations.</p>
+      </div>
+      <div class="chart-grid">
+        <div class="chart-card reveal">
+          <h3>Cumulative cases &amp; deaths</h3>
+          <canvas id="chart-cumulative"></canvas>
+        </div>
+        <div class="chart-card reveal">
+          <h3>Suspected cases by location</h3>
+          <canvas id="chart-by-location"></canvas>
+        </div>
+        <div class="chart-card reveal">
+          <h3>Health zones affected</h3>
+          <canvas id="chart-zones"></canvas>
+        </div>
+        <div class="chart-card reveal">
+          <h3>Case fatality (current)</h3>
+          <canvas id="chart-cfr"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="timeline">
+      <div class="section-head reveal">
+        <h2>Timeline</h2>
+        <p>Key events since the outbreak was first flagged.</p>
+      </div>
+      <ol class="timeline reveal" id="timeline-list"></ol>
+    </section>
+
+    <section class="container section" id="context">
+      <div class="section-head reveal">
+        <h2>Historical context</h2>
+        <p>Bundibugyo virus is one of six known ebolaviruses. Here is what we know.</p>
+      </div>
+      <div class="context-grid">
+        <article class="context-card reveal">
+          <h3>About the virus</h3>
+          <dl id="virus-facts"></dl>
+        </article>
+        <article class="context-card reveal">
+          <h3>Past outbreaks</h3>
+          <ul id="past-outbreaks"></ul>
+        </article>
+        <article class="context-card reveal wide">
+          <h3>Why this outbreak is different</h3>
+          <ul id="why-matters"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="sources">
+      <div class="section-head reveal">
+        <h2>Sources</h2>
+        <p>Data is pulled by an automated Claude API job every four hours from these sources:</p>
+      </div>
+      <ul class="source-list reveal" id="source-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BDBV Tracker</strong> · An open-source dashboard tracking the 2026 Ebola Bundibugyo outbreak.
+      </div>
+      <div class="footer-meta">
+        <span>Not a substitute for official guidance. Always consult <a href="https://www.who.int/" target="_blank" rel="noopener">WHO</a> and <a href="https://www.cdc.gov/" target="_blank" rel="noopener">CDC</a>.</span>
+        <span id="footer-updated"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

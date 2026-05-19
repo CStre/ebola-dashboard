@@ -1,0 +1,45 @@
+{
+  "background": {
+    "virus": "Bundibugyo virus (BDBV)",
+    "family": "Filoviridae",
+    "genus": "Ebolavirus",
+    "discovery": "2007, during an outbreak in Bundibugyo District, Uganda",
+    "case_fatality_rate_historical": "25–51%",
+    "transmission": "Direct contact with blood, body fluids, or tissues of infected people or animals; contact with contaminated surfaces.",
+    "incubation_days": "2–21",
+    "symptoms": "Sudden fever, fatigue, muscle pain, headache, sore throat — followed by vomiting, diarrhoea, rash, impaired kidney/liver function, internal and external bleeding."
+  },
+  "past_outbreaks": [
+    {
+      "year": "2007–2008",
+      "location": "Bundibugyo District, Uganda",
+      "cases": 149,
+      "deaths": 37,
+      "cfr": "25%",
+      "notes": "First identified outbreak. Led to discovery of the Bundibugyo strain."
+    },
+    {
+      "year": "2012",
+      "location": "Orientale Province, DRC",
+      "cases": 36,
+      "deaths": 13,
+      "cfr": "36%",
+      "notes": "Second documented outbreak. Contained within months."
+    },
+    {
+      "year": "2018–2020",
+      "location": "North Kivu / Ituri Province, DRC (Ebola-Zaire)",
+      "cases": 3470,
+      "deaths": 2287,
+      "cfr": "66%",
+      "notes": "Second-largest Ebola outbreak in history. Different species (Zaire ebolavirus), but the same geographic region and many of the same containment challenges (insecurity, mistrust, mobile populations)."
+    }
+  ],
+  "why_this_matters": [
+    "No approved vaccines or therapeutics exist for Bundibugyo virus.",
+    "The outbreak zone overlaps with active armed conflict in eastern DRC.",
+    "Cross-border spread to Uganda confirmed within days of first detection.",
+    "Healthcare worker deaths suggest hospital-based transmission and IPC gaps.",
+    "High positivity rate of initial samples implies underdetection — true caseload likely much higher."
+  ]
+}
