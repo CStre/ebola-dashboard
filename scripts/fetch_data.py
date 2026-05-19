@@ -24,8 +24,9 @@ import anthropic
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_PATH = ROOT / "data" / "outbreak.json"
-MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-5")
-MAX_SEARCH_USES = int(os.environ.get("MAX_SEARCH_USES", "8"))
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
+MAX_SEARCH_USES = int(os.environ.get("MAX_SEARCH_USES", "6"))
+MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "12000"))
 
 
 SYSTEM_PROMPT = """You are a public health data analyst. You produce ONLY valid JSON \
@@ -161,10 +162,10 @@ def call_claude(existing: dict) -> dict:
         today=today,
     )
 
-    print(f"Calling {MODEL} with web search (max {MAX_SEARCH_USES} uses)…", flush=True)
+    print(f"Calling {MODEL} with web search (max {MAX_SEARCH_USES} uses, {MAX_TOKENS} tokens)…", flush=True)
     response = client.messages.create(
         model=MODEL,
-        max_tokens=4096,
+        max_tokens=MAX_TOKENS,
         system=SYSTEM_PROMPT,
         tools=[
             {
@@ -176,10 +177,31 @@ def call_claude(existing: dict) -> dict:
         messages=[{"role": "user", "content": user_message}],
     )
 
+    block_types = [getattr(b, "type", "?") for b in response.content]
+    print(f"stop_reason={response.stop_reason} block_types={block_types}", flush=True)
+    if hasattr(response, "usage"):
+        u = response.usage
+        print(
+            f"usage: input={getattr(u, 'input_tokens', '?')} "
+            f"output={getattr(u, 'output_tokens', '?')} "
+            f"server_tool_use={getattr(u, 'server_tool_use', None)}",
+            flush=True,
+        )
+
     text_chunks = [block.text for block in response.content if getattr(block, "type", None) == "text"]
     raw = "\n".join(text_chunks).strip()
     if not raw:
-        raise SystemExit("Model returned no text content")
+        for block in response.content:
+            bt = getattr(block, "type", "?")
+            if bt == "server_tool_use":
+                q = getattr(getattr(block, "input", None), "get", lambda *_: None)("query") or ""
+                print(f"  searched: {q}", flush=True)
+        raise SystemExit(
+            "Model returned no text content. "
+            f"stop_reason={response.stop_reason}. "
+            "If stop_reason=max_tokens, raise MAX_TOKENS. "
+            "If stop_reason=pause_turn, the model needs another turn — increase MAX_SEARCH_USES limit or simplify the prompt."
+        )
 
     print("Received response. Parsing JSON…", flush=True)
     return extract_json(raw)
