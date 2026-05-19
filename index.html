@@ -33,6 +33,7 @@
         <a href="#overview">Overview</a>
         <a href="#map">Map</a>
         <a href="#trends">Trends</a>
+        <a href="#news">News</a>
         <a href="#timeline">Timeline</a>
         <a href="#context">Context</a>
       </nav>
@@ -47,17 +48,15 @@
     <section class="hero" id="overview">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner reveal">
-        <span class="eyebrow">
+        <span class="eyebrow" id="hero-eyebrow">
           <span class="eyebrow-dot"></span>
-          PHEIC declared · 17 May 2026
+          <span id="hero-eyebrow-text">Loading status…</span>
         </span>
         <h1 class="hero-title">
           Ebola <span class="accent">Bundibugyo</span><br />
           outbreak, live.
         </h1>
-        <p class="hero-sub">
-          A real-time tracker for the 2026 outbreak across the Democratic Republic of the Congo and Uganda. Data refreshed every four hours from WHO, CDC, and other credible sources.
-        </p>
+        <p class="hero-sub" id="hero-sub">A real-time tracker for the 2026 outbreak. Data refreshed every four hours from WHO, CDC, and other credible sources.</p>
         <div class="hero-meta">
           <span>Last update <strong id="last-updated">—</strong></span>
           <span>Next refresh <strong id="next-update">—</strong></span>
@@ -70,22 +69,22 @@
         <article class="stat-card" data-tone="confirmed">
           <header><span>Confirmed cases</span><span class="badge" id="badge-confirmed">—</span></header>
           <div class="stat-value" data-counter id="stat-confirmed">0</div>
-          <footer>Lab-confirmed Bundibugyo virus</footer>
+          <footer id="footer-confirmed">—</footer>
         </article>
         <article class="stat-card" data-tone="suspected">
           <header><span>Suspected cases</span><span class="badge" id="badge-suspected">—</span></header>
           <div class="stat-value" data-counter id="stat-suspected">0</div>
-          <footer>Awaiting laboratory confirmation</footer>
+          <footer id="footer-suspected">—</footer>
         </article>
         <article class="stat-card" data-tone="deaths">
           <header><span>Reported deaths</span><span class="badge" id="badge-deaths">—</span></header>
           <div class="stat-value" data-counter id="stat-deaths">0</div>
-          <footer>Including 4 healthcare workers</footer>
+          <footer id="footer-deaths">—</footer>
         </article>
         <article class="stat-card" data-tone="zones">
           <header><span>Health zones affected</span><span class="badge" id="badge-zones">—</span></header>
           <div class="stat-value" data-counter id="stat-zones">0</div>
-          <footer>Across DRC &amp; Uganda</footer>
+          <footer id="footer-zones">—</footer>
         </article>
       </div>
 
@@ -116,21 +115,29 @@
       <div class="chart-grid">
         <div class="chart-card reveal">
           <h3>Cumulative cases &amp; deaths</h3>
-          <canvas id="chart-cumulative"></canvas>
+          <div class="chart-canvas"><canvas id="chart-cumulative"></canvas></div>
         </div>
         <div class="chart-card reveal">
-          <h3>Suspected cases by location</h3>
-          <canvas id="chart-by-location"></canvas>
+          <h3>Active locations</h3>
+          <div class="chart-canvas"><canvas id="chart-by-location"></canvas></div>
         </div>
         <div class="chart-card reveal">
-          <h3>Health zones affected</h3>
-          <canvas id="chart-zones"></canvas>
+          <h3>Health zones affected over time</h3>
+          <div class="chart-canvas"><canvas id="chart-zones"></canvas></div>
         </div>
         <div class="chart-card reveal">
           <h3>Case fatality (current)</h3>
-          <canvas id="chart-cfr"></canvas>
+          <div class="chart-canvas"><canvas id="chart-cfr"></canvas></div>
         </div>
       </div>
+    </section>
+
+    <section class="container section" id="news">
+      <div class="section-head reveal">
+        <h2>Recent news</h2>
+        <p>Cross-referenced headlines from WHO, CDC, Africa CDC, Reuters, AP, Al Jazeera, UN News and more. Refreshed every four hours.</p>
+      </div>
+      <div class="news-grid reveal" id="news-grid"></div>
     </section>
 
     <section class="container section" id="timeline">
@@ -164,9 +171,10 @@
 
     <section class="container section" id="sources">
       <div class="section-head reveal">
-        <h2>Sources</h2>
-        <p>Data is pulled by an automated Claude API job every four hours from these sources:</p>
+        <h2>Sources &amp; cross-references</h2>
+        <p>Data is pulled by an automated Claude API job every four hours from a rotating set of credible primary and secondary sources. Each refresh reports how many independent sources confirmed the headline figures.</p>
       </div>
+      <div class="source-summary reveal" id="source-summary"></div>
       <ul class="source-list reveal" id="source-list"></ul>
     </section>
   </main>

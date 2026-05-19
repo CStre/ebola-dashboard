@@ -66,13 +66,13 @@
   }
 
   function renderStats(data) {
-    const t = data.totals;
+    const t = data.totals || {};
     const p = data.totals_previous || {};
     const map = {
-      'stat-confirmed': t.confirmed,
-      'stat-suspected': t.suspected,
-      'stat-deaths': t.deaths,
-      'stat-zones': t.health_zones_affected,
+      'stat-confirmed': t.confirmed ?? 0,
+      'stat-suspected': t.suspected ?? 0,
+      'stat-deaths': t.deaths ?? 0,
+      'stat-zones': t.health_zones_affected ?? 0,
     };
     Object.entries(map).forEach(([id, value]) => {
       const el = document.getElementById(id);
@@ -80,10 +80,10 @@
     });
 
     const deltas = [
-      ['badge-confirmed', t.confirmed - (p.confirmed ?? t.confirmed)],
-      ['badge-suspected', t.suspected - (p.suspected ?? t.suspected)],
-      ['badge-deaths', t.deaths - (p.deaths ?? t.deaths)],
-      ['badge-zones', t.health_zones_affected - (p.health_zones_affected ?? t.health_zones_affected)],
+      ['badge-confirmed', (t.confirmed ?? 0) - (p.confirmed ?? t.confirmed ?? 0)],
+      ['badge-suspected', (t.suspected ?? 0) - (p.suspected ?? t.suspected ?? 0)],
+      ['badge-deaths', (t.deaths ?? 0) - (p.deaths ?? t.deaths ?? 0)],
+      ['badge-zones', (t.health_zones_affected ?? 0) - (p.health_zones_affected ?? t.health_zones_affected ?? 0)],
     ];
     deltas.forEach(([id, delta]) => {
       const el = document.getElementById(id);
@@ -99,6 +99,60 @@
         el.className = 'badge down';
       }
     });
+
+    renderStatFooters(data);
+  }
+
+  function countCountries(data) {
+    const t = data.totals || {};
+    if (typeof t.countries_with_cases === 'number') return t.countries_with_cases;
+    const set = new Set();
+    (data.locations || []).forEach((l) => {
+      if (l.status === 'active' && l.country) set.add(l.country);
+    });
+    return set.size || '—';
+  }
+
+  function listCountries(data) {
+    const set = new Set();
+    (data.locations || []).forEach((l) => {
+      if (l.status === 'active' && l.country) set.add(l.country);
+    });
+    const arr = [...set];
+    if (arr.length === 0) return '—';
+    if (arr.length === 1) return arr[0];
+    if (arr.length === 2) return `${arr[0]} & ${arr[1]}`;
+    return `${arr.slice(0, -1).join(', ')} & ${arr[arr.length - 1]}`;
+  }
+
+  function renderStatFooters(data) {
+    const t = data.totals || {};
+    const meta = data.meta || {};
+    const disease = (meta.disease || 'Bundibugyo virus').replace(/^Ebola disease \(|\)$/g, '').replace(/^Ebola /, '');
+
+    const footers = {
+      'footer-confirmed': `Lab-confirmed ${disease}`,
+      'footer-suspected': `${t.suspected ? 'Awaiting laboratory confirmation' : 'No suspected cases reported'}`,
+      'footer-deaths': t.healthcare_worker_deaths
+        ? `Including ${fmt(t.healthcare_worker_deaths)} healthcare worker${t.healthcare_worker_deaths === 1 ? '' : 's'}`
+        : 'Reported deaths to date',
+      'footer-zones': `Across ${listCountries(data)}`,
+    };
+    Object.entries(footers).forEach(([id, text]) => setText(id, text));
+  }
+
+  function renderHeroMeta(data) {
+    const meta = data.meta || {};
+    const phase = meta.phase || 'Active outbreak';
+    const declared = meta.declared_at ? new Date(meta.declared_at) : null;
+    const declaredStr = declared && !isNaN(declared)
+      ? declared.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })
+      : null;
+    setText('hero-eyebrow-text', declaredStr ? `${phase} · declared ${declaredStr}` : phase);
+
+    const countries = listCountries(data);
+    const sub = `A real-time tracker for the 2026 outbreak across ${countries}. Data refreshed every four hours from WHO, CDC, Africa CDC, and other credible sources.`;
+    setText('hero-sub', sub);
   }
 
   function renderAlerts(alerts = []) {
@@ -388,14 +442,99 @@
     }
   }
 
-  function renderSources(sources = []) {
-    const root = document.getElementById('source-list');
-    if (!root) return;
-    root.innerHTML = '';
+  function renderSources(data) {
+    const list = document.getElementById('source-list');
+    const summary = document.getElementById('source-summary');
+    const meta = data.meta || {};
+    const sources = meta.data_sources || [];
+    const xref = meta.cross_references || {};
+
+    if (summary) {
+      summary.innerHTML = '';
+      const summaryItems = [
+        { label: 'Sources consulted', value: sources.length, detail: 'In this refresh' },
+        { label: 'Independent confirmations', value: xref.confirmations_for_totals || sources.length, detail: 'Of headline figures' },
+        { label: 'Primary sources', value: xref.primary_count || countPrimary(sources), detail: 'WHO, CDC, Africa CDC, MoH' },
+        { label: 'Wire / news', value: xref.wire_count || (sources.length - countPrimary(sources)), detail: 'Reuters, AP, AFP, etc.' },
+      ];
+      summaryItems.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'source-summary-card';
+        card.innerHTML = `
+          <span class="ss-label">${item.label}</span>
+          <span class="ss-value">${fmt(item.value)}</span>
+          <span class="ss-detail">${item.detail}</span>
+        `;
+        summary.appendChild(card);
+      });
+    }
+
+    if (!list) return;
+    list.innerHTML = '';
     sources.forEach((s) => {
       const li = document.createElement('li');
-      li.textContent = s;
-      root.appendChild(li);
+      const parsed = parseSourceLine(s);
+      if (parsed.url) {
+        li.innerHTML = `
+          <a href="${parsed.url}" target="_blank" rel="noopener">${parsed.label} ↗</a>
+          <span class="src-domain">${parsed.domain}${parsed.date ? ' · ' + parsed.date : ''}</span>
+        `;
+      } else {
+        li.innerHTML = `
+          <span>${parsed.label}</span>
+          ${parsed.domain ? `<span class="src-domain">${parsed.domain}${parsed.date ? ' · ' + parsed.date : ''}</span>` : ''}
+        `;
+      }
+      list.appendChild(li);
+    });
+  }
+
+  function countPrimary(sources) {
+    const primary = /who\.int|cdc\.gov|africacdc|moh|ministry|inrb|government|gov\./i;
+    return sources.filter((s) => primary.test(s)).length;
+  }
+
+  function parseSourceLine(line) {
+    const urlMatch = line.match(/(https?:\/\/[^\s)]+)/);
+    const domainMatch = line.match(/\(([^)]*?\.[a-z]{2,})[^)]*?\)/i) || line.match(/\b([a-z0-9-]+\.[a-z]{2,}(?:\.[a-z]{2,})?)\b/i);
+    const dateMatch = line.match(/\b(\d{4}-\d{2}-\d{2})\b/);
+    const labelRaw = line.replace(/\([^)]*\)/g, '').replace(/https?:\/\/\S+/g, '').trim();
+    return {
+      label: labelRaw || line,
+      url: urlMatch ? urlMatch[1] : null,
+      domain: domainMatch ? domainMatch[1] : null,
+      date: dateMatch ? dateMatch[1] : null,
+    };
+  }
+
+  function renderNews(items = []) {
+    const root = document.getElementById('news-grid');
+    if (!root) return;
+    root.innerHTML = '';
+    if (items.length === 0) {
+      root.innerHTML = '<p style="color:var(--text-faint);font-size:14px;">News will appear here after the next data refresh.</p>';
+      return;
+    }
+    items.forEach((item) => {
+      const card = document.createElement('a');
+      card.className = 'news-card';
+      card.href = item.url || '#';
+      if (item.url) {
+        card.target = '_blank';
+        card.rel = 'noopener';
+      }
+      const date = item.date || item.published || '';
+      const tags = (item.tags || []).map((t) => `<span class="news-tag${t.toLowerCase().includes('confirm') ? ' confirmed' : ''}">${t}</span>`).join('');
+      card.innerHTML = `
+        <div class="news-meta">
+          <span class="news-source">${item.source || 'Source'}</span>
+          <span>${date}</span>
+        </div>
+        <h4>${item.title || 'Untitled'}</h4>
+        <p>${item.summary || ''}</p>
+        ${tags ? `<div class="news-tags">${tags}</div>` : ''}
+      `;
+      root.appendChild(card);
     });
   }
 
@@ -424,16 +563,18 @@
       setText('next-update', fmtDate(data.meta?.next_update));
       setText('footer-updated', `Last refresh ${fmtDate(data.meta?.last_updated)}`);
 
+      renderHeroMeta(data);
       renderStats(data);
       renderAlerts(data.alerts);
       buildMap(data.locations);
       buildCumulativeChart(data.history_snapshots);
       buildLocationChart(data.locations);
       buildZonesChart(data.history_snapshots);
-      buildCfrChart(data.totals);
+      buildCfrChart(data.totals || {});
       renderTimeline(data.timeline);
       renderContext(history);
-      renderSources(data.meta?.data_sources || []);
+      renderNews(data.news || []);
+      renderSources(data);
 
       setStatus('ok', 'Live');
     } catch (err) {

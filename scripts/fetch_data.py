@@ -25,33 +25,49 @@ import anthropic
 ROOT = Path(__file__).resolve().parent.parent
 DATA_PATH = ROOT / "data" / "outbreak.json"
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
-MAX_SEARCH_USES = int(os.environ.get("MAX_SEARCH_USES", "6"))
-MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "12000"))
+MAX_SEARCH_USES = int(os.environ.get("MAX_SEARCH_USES", "12"))
+MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "16000"))
 
 
-SYSTEM_PROMPT = """You are a public health data analyst. You produce ONLY valid JSON \
-matching the requested schema. You never invent numbers — if a figure is not in your \
-search results, omit the field rather than guessing. Always prefer the most recent \
-WHO Disease Outbreak News, CDC briefings, Africa CDC, Reuters, and AP reports."""
+SYSTEM_PROMPT = """You are a public health data analyst producing structured JSON \
+for a live outbreak dashboard. You produce ONLY valid JSON matching the requested \
+schema — no commentary, no markdown fences. You never invent numbers; if a figure is \
+not in your search results, omit the field rather than guessing. You always \
+cross-reference headline totals across multiple independent sources before committing \
+them, preferring the most recent WHO Disease Outbreak News, CDC briefings, Africa \
+CDC, government health ministry releases, and major wire services."""
 
 
-USER_TEMPLATE = """Search the web right now for the latest official figures on the \
-2026 Ebola disease outbreak (Bundibugyo virus) affecting the Democratic Republic of \
-the Congo (DRC) and Uganda.
+USER_TEMPLATE = """Search the web for the latest official figures on the 2026 \
+Ebola disease outbreak (Bundibugyo virus) in the Democratic Republic of the Congo \
+(DRC) and Uganda.
 
-Required sources (search at least 3):
-  - WHO Disease Outbreak News (who.int)
-  - US CDC (cdc.gov) Ebola situation summaries
-  - Africa CDC briefings
-  - Reuters or Associated Press wire reports
-  - Government health ministry releases (DRC INRB, Uganda MoH)
+CROSS-REFERENCE REQUIREMENT
+You MUST consult at least 6 distinct sources, including AT LEAST 3 primary sources \
+(WHO, CDC, Africa CDC, DRC MoH/INRB, Uganda MoH). Only include a headline figure if \
+it is confirmed by two or more independent sources, or by one authoritative primary \
+source (WHO DON or Africa CDC briefing).
 
-Return a single JSON object with this exact shape, and nothing else:
+Search across these source families:
+  - Primary: who.int, cdc.gov, africacdc.org, inrb.cd, health.go.ug
+  - Wire: reuters.com, apnews.com, afp.com, aljazeera.com
+  - News: bbc.com, nytimes.com, washingtonpost.com, cnn.com, nbcnews.com
+  - UN system: news.un.org, ocha.org, unicef.org
+
+Return a SINGLE JSON object with this exact shape:
 
 {{
   "meta": {{
     "last_updated": "<ISO 8601 UTC timestamp of now>",
-    "data_sources": ["<short labels of the sources you actually used>"]
+    "data_sources": [
+      "<source label> (<domain>, <YYYY-MM-DD>) <canonical URL>"
+    ],
+    "cross_references": {{
+      "confirmations_for_totals": <int — how many independent sources confirmed the headline totals>,
+      "primary_count": <int — how many primary sources (WHO/CDC/Africa CDC/MoH) you consulted>,
+      "wire_count": <int — wire/news sources consulted>,
+      "notes": "<one short sentence about agreement or discrepancies between sources>"
+    }}
   }},
   "totals": {{
     "confirmed": <int>,
@@ -67,8 +83,7 @@ Return a single JSON object with this exact shape, and nothing else:
       "name": "<city or health zone>",
       "region": "<province or region>",
       "country": "<DRC or Uganda or ...>",
-      "lat": <float>,
-      "lon": <float>,
+      "lat": <float>, "lon": <float>,
       "status": "active" | "retracted" | "resolved",
       "tier": "epicenter" | "high" | "new" | "international" | "retracted",
       "first_reported": "YYYY-MM-DD",
@@ -86,18 +101,32 @@ Return a single JSON object with this exact shape, and nothing else:
       "source": "<source label>",
       "url": "<canonical source URL>"
     }}
+  ],
+  "news": [
+    {{
+      "title": "<headline, max 110 chars>",
+      "summary": "<2-sentence summary, max 240 chars>",
+      "source": "<publication name, e.g. WHO, Reuters, Al Jazeera>",
+      "url": "<canonical article URL>",
+      "date": "<YYYY-MM-DD>",
+      "tags": ["<short tag>", "..."]
+    }}
   ]
 }}
 
-Use "tier": "new" for any location first reported in the last 24 hours. Use \
-"international" for locations outside DRC. Use "retracted" if a previously \
-reported case has been disconfirmed.
+Rules:
+  - Provide 8–12 news items, dated within the last 7 days, sorted newest first.
+  - Each news item must be from a distinct article (no duplicates across sources).
+  - Tag news items with short labels like "WHO", "Confirmed case", "Vaccine", \
+"Travel", "Containment", "Funding".
+  - Use "tier": "new" for any location first reported in the last 24 hours. Use \
+"international" for locations outside DRC. Use "retracted" for disconfirmed cases.
+  - Omit any field for which you have no confirmed source rather than fabricating.
 
 For context, the previously reported totals (as of {prev_updated}) were:
 {prev_totals}
 
-Today's date is {today}. Do not include any commentary, markdown fences, or text \
-outside the JSON. Output JSON only.
+Today's date is {today}. Output JSON only, no surrounding text or fences.
 """
 
 
@@ -237,6 +266,14 @@ def merge(existing: dict, fresh: dict) -> dict:
 
     if fresh.get("alerts"):
         out["alerts"] = fresh["alerts"]
+
+    if fresh.get("news"):
+        out["news"] = fresh["news"]
+
+    fresh_meta = fresh.get("meta", {})
+    if fresh_meta.get("cross_references"):
+        meta["cross_references"] = fresh_meta["cross_references"]
+        out["meta"] = meta
 
     timeline = list(out.get("timeline") or [])
     existing_events = {(t.get("date"), t.get("event")) for t in timeline}
