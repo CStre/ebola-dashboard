@@ -312,8 +312,10 @@ def merge(existing: dict, fresh: dict) -> dict:
     fresh_meta = fresh.get("meta", {})
     now = datetime.now(timezone.utc)
     next_update = _next_scheduled_run(now)
+    # Always use the actual script run time — the model is unreliable at
+    # producing a current ISO 8601 timestamp ("now" is not in its context).
     meta.update({
-        "last_updated": fresh_meta.get("last_updated") or now.isoformat(timespec="seconds"),
+        "last_updated": now.isoformat(timespec="seconds"),
         "next_update": next_update.isoformat(timespec="seconds"),
         "data_sources": fresh_meta.get("data_sources") or meta.get("data_sources", []),
         "disease": meta.get("disease", "Ebola disease (Bundibugyo virus)"),
