@@ -350,6 +350,28 @@
     });
   }
 
+  const COUNTRY_ABBR = {
+    'Democratic Republic of the Congo': 'DRC',
+    'Democratic Republic of Congo': 'DRC',
+    'DR Congo': 'DRC',
+    'United States of America': 'USA',
+    'United States': 'USA',
+    'United Kingdom': 'UK',
+    'United Republic of Tanzania': 'Tanzania',
+    'Central African Republic': 'CAR',
+    'Republic of the Congo': 'Congo',
+  };
+
+  function shortCountry(name) {
+    if (!name) return '';
+    return COUNTRY_ABBR[name] || name;
+  }
+
+  function shortLocationName(name) {
+    if (!name) return '';
+    return String(name).replace(/\s+Health Zone$/i, ' HZ');
+  }
+
   function buildLocationChart(locations = []) {
     const el = document.getElementById('chart-by-location');
     const titleEl = document.getElementById('chart-locations-title');
@@ -359,19 +381,24 @@
     const active = locations.filter((l) => l.status === 'active');
     if (active.length === 0) return;
 
-    const hasCaseCounts = active.some((l) =>
-      typeof l.confirmed_cases === 'number' || typeof l.suspected_cases === 'number'
+    // Only show locations that actually have a per-location case count.
+    const withCounts = active.filter((l) =>
+      (typeof l.confirmed_cases === 'number' && l.confirmed_cases > 0) ||
+      (typeof l.suspected_cases === 'number' && l.suspected_cases > 0)
     );
 
     let datasets;
     let xTitle;
-    if (hasCaseCounts) {
-      const sorted = [...active].sort((a, b) => {
+    // Need at least 2 locations with counts to make a "by location" chart
+    // meaningful. Otherwise fall back to "days since first reported" which
+    // is computable for every location.
+    if (withCounts.length >= 2) {
+      const sorted = [...withCounts].sort((a, b) => {
         const totalA = (a.confirmed_cases || 0) + (a.suspected_cases || 0);
         const totalB = (b.confirmed_cases || 0) + (b.suspected_cases || 0);
         return totalB - totalA;
       });
-      const labels = sorted.map((l) => `${l.name}, ${l.country}`);
+      const labels = sorted.map((l) => `${shortLocationName(l.name)}, ${shortCountry(l.country)}`);
       datasets = [
         {
           label: 'Confirmed',
@@ -390,7 +417,7 @@
           stack: 'cases',
         },
       ];
-      xTitle = 'Cases by location';
+      xTitle = `Cases by location (${withCounts.length} of ${active.length} reporting)`;
       _renderChartLocations(el, labels, datasets, sorted, true);
     } else {
       // Fallback: days since first reported, color-coded by tier.
@@ -403,7 +430,7 @@
           return { ...l, _days: days };
         })
         .sort((a, b) => b._days - a._days);
-      const labels = sorted.map((l) => `${l.name}, ${l.country}`);
+      const labels = sorted.map((l) => `${shortLocationName(l.name)}, ${shortCountry(l.country)}`);
       datasets = [{
         label: 'Days since first reported',
         data: sorted.map((l) => l._days),
@@ -718,13 +745,18 @@
     const dl = document.getElementById('virus-facts');
     if (dl) {
       dl.innerHTML = '';
+      const truncate = (s, n) => {
+        if (!s) return '';
+        const str = String(s);
+        return str.length > n ? str.slice(0, n - 1).trim() + '…' : str;
+      };
       const factsList = [
-        ['Virus', facts.virus],
-        ['Family', facts.family],
-        ['Discovered', facts.discovery],
-        ['Historic CFR', facts.case_fatality_rate_historical],
+        ['Virus', truncate(facts.virus, 60)],
+        ['Family', truncate(facts.family, 60)],
+        ['Discovered', truncate(facts.discovery, 60)],
+        ['Historic CFR', truncate(facts.case_fatality_rate_historical, 60)],
         ['Incubation', facts.incubation_days ? `${facts.incubation_days}${/\d/.test(String(facts.incubation_days)) && !/day/i.test(String(facts.incubation_days)) ? ' days' : ''}` : ''],
-        ['Vaccines / therapeutics', facts.vaccines_therapeutics],
+        ['Vaccines / therapeutics', truncate(facts.vaccines_therapeutics, 80)],
       ];
       factsList.forEach(([k, v]) => {
         if (!v) return;

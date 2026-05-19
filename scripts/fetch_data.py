@@ -132,7 +132,7 @@ Return a SINGLE JSON object with this exact shape:
       "transmission": "<verified or updated>",
       "incubation_days": "<verified or updated>",
       "symptoms": "<verified or updated>",
-      "vaccines_therapeutics": "<CURRENT status of any approved or candidate vaccines/therapeutics for Bundibugyo specifically>"
+      "vaccines_therapeutics": "<CURRENT status, MAX 80 CHARS, e.g. 'None approved; rVSV-EBOV under emergency review'>"
     }},
     "past_outbreaks": [
       {{ "year": "<YYYY or YYYY-YYYY>", "location": "<country/region>", "cases": <int>, "deaths": <int>, "cfr": "<percentage>", "notes": "<one sentence>" }}
