@@ -1,52 +1,52 @@
 {
   "meta": {
-    "last_updated": "2026-05-19T06:00:00Z",
+    "last_updated": "2026-05-19T04:40:06+00:00",
     "next_update": "2026-05-19T12:00:00+00:00",
     "data_sources": [
+      "WHO Disease Outbreak News DON602 (who.int, 2026-05-17) https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON602",
       "WHO PHEIC Declaration (who.int, 2026-05-17) https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern",
-      "WHO Disease Outbreak News DON602 (who.int, 2026-05-15) https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON602",
-      "CDC Current Situation \u2014 Ebola Disease (cdc.gov, 2026-05-18) https://www.cdc.gov/ebola/situation-summary/index.html",
-      "CDC Newsroom \u2014 CDC Mobilizes International Response (cdc.gov, 2026-05-18) https://www.cdc.gov/media/releases/2026/cdc-mobilizes-international-ebola-response.html",
-      "CDC Press Briefing Transcript 2026-05-17 (cdc.gov, 2026-05-17) https://www.cdc.gov/media/releases/2026/transcript-ebola-update-05-17-2026.html",
-      "Africa CDC \u2014 PHECS Declaration (africacdc.org, 2026-05-18) https://africacdc.org/news-item/africa-cdc-declares-the-ongoing-bundibugyo-ebola-outbreak-a-public-health-emergency-of-continental-security/",
-      "Africa CDC \u2014 Urgent Regional Coordination Statement (africacdc.org, 2026-05-15) https://africacdc.org/news-item/africa-cdc-calls-for-urgent-regional-coordination-following-ebola-virus-disease-outbreak-in-ituri-province-drc-and-imported-ebola-bundibugyo-case-reported-by-uganda/",
-      "UN News \u2014 PHEIC Declaration (news.un.org, 2026-05-18) https://news.un.org/en/story/2026/05/1167531",
-      "UN News \u2014 Ebola follows DRC hunger crisis (news.un.org, 2026-05-18) https://news.un.org/en/story/2026/05/1167534",
-      "MSF / Doctors Without Borders response statement (msf.org, 2026-05-17) https://www.msf.org/msf-preparing-large-scale-response-ebola-outbreak-ituri-province",
-      "CNN \u2014 Ebola Explainer (cnn.com, 2026-05-19) https://www.cnn.com/2026/05/17/africa/ebola-outbreak-congo-uganda-explainer-intl",
-      "NBC News \u2014 2026 Ebola outbreak explainer (nbcnews.com, 2026-05-19) https://www.nbcnews.com/health/health-news/ebola-outbreak-2026-bundibugyo-symptoms-how-spread-treatment-what-know-rcna345696",
-      "Al Jazeera \u2014 PHEIC declaration (aljazeera.com, 2026-05-17) https://www.aljazeera.com/news/2026/5/17/who-declares-ebola-outbreak-in-dr-congo-uganda-a-global-health-emergency",
-      "Al Jazeera \u2014 Explainer (aljazeera.com, 2026-05-17) https://www.aljazeera.com/news/2026/5/17/who-declares-ebola-outbreak-in-drc-uganda-a-global-emergency-what-to-know",
-      "Reuters via US News \u2014 Bundibugyo explainer (usnews.com, 2026-05-18) https://www.usnews.com/news/world/articles/2026-05-18/explainer-what-do-we-know-about-the-bundibugyo-strain-of-the-ebola-virus",
-      "Bloomberg \u2014 American missionary Ebola (bloomberg.com, 2026-05-18) https://www.bloomberg.com/news/articles/2026-05-18/cdc-working-to-get-some-americans-out-of-ebola-region-in-congo",
-      "NPR \u2014 WHO declares PHEIC (npr.org, 2026-05-17) https://www.npr.org/2026/05/16/g-s1-122494/a-new-ebola-outbreak-has-already-killed-87-people",
-      "Newsweek \u2014 Peter Stafford (newsweek.com, 2026-05-19) https://www.newsweek.com/ebola-outbreak-peter-stafford-drc-missionary-11964751",
-      "Imperial College London School of Public Health Q&A (imperial.ac.uk, 2026-05-17) https://www.imperial.ac.uk/news/articles/2026/ebola-outbreak-2026-qa-with-experts/",
-      "Contagion Live \u2014 WHO PHEIC update (contagionlive.com, 2026-05-19) https://www.contagionlive.com/view/who-declares-bundibugyo-ebola-outbreak-a-health-emergency",
-      "CEPI/Moderna funding note via Global Research (globalresearch.ca, 2026-05-18) https://www.globalresearch.ca/moderna-bundibugyo-ebola-mrna-vaccine-4-months-before-who-declared-global-emergency/5926758"
+      "CDC Current Situation page (cdc.gov, 2026-05-18) https://www.cdc.gov/ebola/situation-summary/index.html",
+      "CDC Mobilizes Response press release (cdc.gov, 2026-05-18) https://www.cdc.gov/media/releases/2026/cdc-mobilizes-international-ebola-response.html",
+      "CDC Frequently Asked Questions (cdc.gov, 2026-05-18) https://www.cdc.gov/ebola/faq/index.html",
+      "Africa CDC PHECS Declaration (africacdc.org, 2026-05-18) https://africacdc.org/news-item/africa-cdc-declares-the-ongoing-bundibugyo-ebola-outbreak-a-public-health-emergency-of-continental-security/",
+      "Africa CDC Statement from Director General (africacdc.org, 2026-05-16) https://africacdc.org/news-item/ebola-response-statement-from-the-director-general-africa-cdc/",
+      "Africa CDC Regional Coordination Statement (africacdc.org, 2026-05-15) https://africacdc.org/news-item/africa-cdc-calls-for-urgent-regional-coordination-following-ebola-virus-disease-outbreak-in-ituri-province-drc-and-imported-ebola-bundibugyo-case-reported-by-uganda/",
+      "ECDC Monitoring Statement (ecdc.europa.eu, 2026-05-18) https://www.ecdc.europa.eu/en/news-events/who-declares-ebola-outbreak-democratic-republic-congo-public-health-emergency",
+      "OCHA/Xinhua UN humanitarian warning (english.news.cn, 2026-05-19) https://english.news.cn/20260519/9eda072e7c8a488bb74e96ffcc68a15b/c.html",
+      "UN News PHEIC declaration story (news.un.org, 2026-05-18) https://news.un.org/en/story/2026/05/1167531",
+      "UN News Ebola follows hunger crisis (news.un.org, 2026-05-19) https://news.un.org/en/story/2026/05/1167534",
+      "Xinhua Goma case / Rwanda border closure (english.news.cn, 2026-05-18) https://english.news.cn/africa/20260518/9c015b5ebe0f4a1797d15a71748ebb29/c.html",
+      "Reuters via The Express Tribune (tribune.com.pk, 2026-05-19) https://tribune.com.pk/story/2608832/health-workers-race-to-contain-congos-fast-spreading-ebola-outbreak",
+      "CNN American infected / global efforts (edition.cnn.com, 2026-05-18) https://edition.cnn.com/2026/05/18/africa/ebola-outbreak-global-efforts-americans-intl-hnk",
+      "CNN Explainer post-PHEIC (cnn.com, 2026-05-19) https://www.cnn.com/2026/05/17/africa/ebola-outbreak-congo-uganda-explainer-intl",
+      "NBC News first American tests positive (nbcnews.com, 2026-05-19) https://www.nbcnews.com/health/health-news/ebola-outbreak-2026-bundibugyo-symptoms-how-spread-treatment-what-know-rcna345696",
+      "NPR \u2014 questions about US response (npr.org, 2026-05-18) https://www.npr.org/2026/05/18/g-s1-122655/ebola-outbreak-democratic-republic-congo-uganda",
+      "STAT News \u2014 Americans exposed (statnews.com, 2026-05-17) https://www.statnews.com/2026/05/17/ebola-outbreak-congo-americans-exposure-suspected-cases/",
+      "Al Jazeera PHEIC explainer (aljazeera.com, 2026-05-17) https://www.aljazeera.com/news/2026/5/17/who-declares-ebola-outbreak-in-drc-uganda-a-global-emergency-what-to-know",
+      "LSHTM Rapid Reaction (lshtm.ac.uk, 2026-05-18) https://www.lshtm.ac.uk/newsevents/news/2026/rapid-reaction-ebola-outbreak-drc-and-uganda"
     ],
     "disease": "Ebola disease (Bundibugyo virus)",
     "phase": "Public Health Emergency of International Concern (PHEIC)",
     "declared_at": "2026-05-17T00:00:00Z",
     "cross_references": {
-      "confirmations_for_totals": 4,
-      "primary_count": 7,
+      "confirmations_for_totals": 5,
+      "primary_count": 8,
       "wire_count": 7,
-      "scholarly_count": 1,
-      "notes": "Africa CDC (2026-05-18 PHECS declaration) reports 395 suspected cases and 106 associated deaths as the most current aggregate; CDC current situation page (2026-05-18) reports 11 confirmed + 336 suspected + 88 deaths in DRC and 2 confirmed + 1 death in Uganda, while NBC/UN cite ~500 suspected and 116 deaths as of 2026-05-19 morning, reflecting rapid daily escalation \u2014 all sources are broadly consistent in trajectory, with Africa CDC providing the highest confirmed aggregate figure."
+      "scholarly_count": 2,
+      "notes": "The Africa CDC PHECS briefing (2026-05-18) provides the most-cited headline aggregates of 395 suspected cases and 106 deaths across DRC+Uganda; the CDC current-situation page (2026-05-18) gives 11 confirmed, 336 suspected, 88 deaths in DRC + 2 confirmed/1 death Uganda; OCHA (2026-05-19) gives the highest figure yet of 482 suspected cases and 116 deaths in Ituri alone \u2014 discrepancy reflects rapid case ascertainment and different geographic scopes; figures are aligned directionally across all primary sources."
     },
     "top_publications": [
       "WHO",
       "Africa CDC",
       "CDC (US)",
-      "UN News",
-      "MSF"
+      "ECDC",
+      "OCHA / UN News"
     ]
   },
   "totals": {
     "confirmed": 13,
-    "suspected": 395,
-    "deaths": 106,
+    "suspected": 482,
+    "deaths": 116,
     "health_zones_affected": 9,
     "countries_with_cases": 2,
     "healthcare_worker_deaths": 4
@@ -58,11 +58,23 @@
     "health_zones_affected": 9,
     "countries_with_cases": 2,
     "healthcare_worker_deaths": 4,
-    "as_of": "2026-05-19T10:00:00Z"
+    "as_of": "2026-05-19T06:00:00Z"
   },
   "locations": [
     {
-      "id": "mongbwalu-ituri-drc",
+      "id": "rwampara-hz-ituri",
+      "name": "Rwampara Health Zone",
+      "region": "Ituri Province",
+      "country": "Democratic Republic of the Congo",
+      "lat": 1.72,
+      "lon": 30.21,
+      "status": "active",
+      "tier": "epicenter",
+      "first_reported": "2026-05-05",
+      "notes": "Likely ground-zero health zone; 8 of 13 initial blood samples tested positive here confirming Bundibugyo virus on 15 May 2026; six health areas within the zone affected."
+    },
+    {
+      "id": "mongbwalu-hz-ituri",
       "name": "Mongbwalu Health Zone",
       "region": "Ituri Province",
       "country": "Democratic Republic of the Congo",
@@ -71,71 +83,71 @@
       "status": "active",
       "tier": "epicenter",
       "first_reported": "2026-05-05",
-      "notes": "Believed index origin of the outbreak; a busy mining area where MSF found 55 deaths since early April; three health areas affected."
+      "notes": "High-traffic artisanal gold-mining area believed to be the original spillover site; WHO was first alerted on 5 May 2026 to a high-mortality cluster here including four health-worker deaths within four days."
     },
     {
-      "id": "rwampara-ituri-drc",
-      "name": "Rwampara Health Zone",
+      "id": "bunia-hz-ituri",
+      "name": "Bunia Health Zone (provincial capital)",
       "region": "Ituri Province",
       "country": "Democratic Republic of the Congo",
-      "lat": 1.58,
-      "lon": 30.22,
+      "lat": 1.558,
+      "lon": 30.25,
       "status": "active",
       "tier": "epicenter",
-      "first_reported": "2026-05-13",
-      "notes": "Six health areas affected; site of the INRB sampling that yielded 8 PCR-positive samples confirming Bundibugyo virus on 15 May 2026."
+      "first_reported": "2026-05-05",
+      "notes": "Provincial capital and urban hub; index case \u2014 a healthcare worker with onset 24 April 2026 \u2014 died at a medical centre here; at least one confirmed American (Dr. Peter Stafford) tested positive in Bunia on 17 May 2026."
     },
     {
-      "id": "bunia-ituri-drc",
-      "name": "Bunia Health Zone",
-      "region": "Ituri Province",
+      "id": "goma-north-kivu",
+      "name": "Goma",
+      "region": "North Kivu Province",
       "country": "Democratic Republic of the Congo",
-      "lat": 1.5581,
-      "lon": 30.2505,
+      "lat": -1.679,
+      "lon": 29.221,
       "status": "active",
-      "tier": "high",
-      "first_reported": "2026-05-14",
-      "notes": "Provincial capital; index suspected case (a healthcare worker) died here on 24 April 2026; MSF Salama clinic has isolated suspected cases."
+      "tier": "new",
+      "first_reported": "2026-05-18",
+      "confirmed_cases": 1,
+      "notes": "Laboratory-confirmed case announced 17\u201318 May 2026 by INRB director Muyembe; patient is the wife of a Bunia man who died of Ebola and travelled to Goma while already infected; M23 rebels confirmed isolation; Rwanda closed border crossings in response."
+    },
+    {
+      "id": "beni-north-kivu",
+      "name": "Beni",
+      "region": "North Kivu Province",
+      "country": "Democratic Republic of the Congo",
+      "lat": 0.489,
+      "lon": 29.473,
+      "status": "active",
+      "tier": "new",
+      "first_reported": "2026-05-17",
+      "confirmed_cases": 1,
+      "notes": "Confirmed case reported evening 17 May 2026; patient travelled from Bunia according to North Kivu provincial minister of social affairs; confirms spread of Bundibugyo virus within North Kivu."
     },
     {
       "id": "kampala-uganda",
       "name": "Kampala",
       "region": "Central Region",
       "country": "Uganda",
-      "lat": 0.3136,
-      "lon": 32.5811,
+      "lat": 0.3476,
+      "lon": 32.5825,
       "status": "active",
       "tier": "international",
       "first_reported": "2026-05-15",
       "confirmed_cases": 2,
       "deaths": 1,
-      "notes": "Two unlinked imported cases confirmed on 15\u201316 May 2026 in individuals travelling from DRC; one fatality (59-year-old Congolese man, Kibuli Muslim Hospital); no local transmission confirmed as of reporting."
+      "notes": "Two unrelated laboratory-confirmed imported cases; first: 59-year-old Congolese male admitted Kibuli Muslim Hospital 11 May, died 14 May; second: a separate individual with no epidemiological link to Case 1, confirmed 16 May 2026; no local transmission identified as of 18 May."
     },
     {
-      "id": "goma-north-kivu-drc",
-      "name": "Goma",
-      "region": "North Kivu Province",
+      "id": "kinshasa-drc",
+      "name": "Kinshasa",
+      "region": "Kinshasa Province",
       "country": "Democratic Republic of the Congo",
-      "lat": -1.6795,
-      "lon": 29.2285,
-      "status": "active",
-      "tier": "new",
-      "first_reported": "2026-05-17",
-      "confirmed_cases": 1,
-      "notes": "INRB-confirmed case on 17 May 2026: wife of a Bunia Ebola fatality who travelled to rebel-held Goma while symptomatic; raises cross-provincial and Rwanda border risk."
-    },
-    {
-      "id": "beni-north-kivu-drc",
-      "name": "Beni",
-      "region": "North Kivu Province",
-      "country": "Democratic Republic of the Congo",
-      "lat": 0.4917,
-      "lon": 29.4731,
-      "status": "active",
-      "tier": "new",
-      "first_reported": "2026-05-18",
-      "confirmed_cases": 1,
-      "notes": "UN News reported an individual who travelled from Bunia to Beni tested positive for Ebola; under investigation."
+      "lat": -4.322,
+      "lon": 15.322,
+      "status": "retracted",
+      "tier": "retracted",
+      "first_reported": "2026-05-16",
+      "notes": "An individual returning from Ituri to Kinshasa initially flagged as a case on 16 May 2026 but tested negative on confirmatory INRB PCR testing; WHO formally retracted this case."
     }
   ],
   "timeline": [
@@ -150,6 +162,10 @@
     {
       "date": "2026-04-24",
       "event": "Earliest known suspected case \u2014 a healthcare worker in Bunia \u2014 reports symptom onset (fever, hemorrhaging, vomiting); dies at Bunia medical centre. (WHO DON602)"
+    },
+    {
+      "date": "2026-04-24",
+      "event": "Index case: healthcare worker in Bunia develops fever, haemorrhaging, vomiting and intense malaise \u2014 first known suspected case of the outbreak, later dies at a Bunia medical centre."
     },
     {
       "date": "2026-05-05",
@@ -168,6 +184,10 @@
       "event": "WHO alerted to high-mortality unknown illness cluster in Mongbwalu Health Zone, Ituri Province, including 4 healthcare worker deaths within 4 days. (WHO DON602)"
     },
     {
+      "date": "2026-05-05",
+      "event": "WHO alerted to high-mortality cluster of unknown illness in Mongbwalu Health Zone, Ituri Province, including 4 health-worker deaths within 4 days."
+    },
+    {
       "date": "2026-05-09",
       "event": "MSF receives alerts of increased hemorrhagic fever deaths in Mongbwalu; team deployed finds 55 deaths since early April. (MSF statement)"
     },
@@ -180,6 +200,10 @@
       "event": "WHO rapid-response team conducts in-depth investigation in Mongbwalu and Rwampara health zones. (WHO DON602)"
     },
     {
+      "date": "2026-05-13",
+      "event": "WHO/DRC rapid-response teams conduct in-depth field investigation in Mongbwalu and Rwampara Health Zones; samples collected and sent to INRB Kinshasa."
+    },
+    {
       "date": "2026-05-14",
       "event": "INRB Kinshasa analyses samples; PCR confirms Orthoebolavirus in 8 of 13 specimens; genomic sequencing identifies Bundibugyo virus (BDBV). (WHO DON602 / INRB)"
     },
@@ -190,6 +214,10 @@
     {
       "date": "2026-05-14",
       "event": "INRB Kinshasa analyses 13 blood samples from Rwampara; 8 test positive by PCR for Orthoebolavirus. (WHO DON602)"
+    },
+    {
+      "date": "2026-05-14",
+      "event": "INRB analyses 13 blood samples from Rwampara Health Zone; 8 test positive for Orthoebolavirus by PCR; results released 15 May."
     },
     {
       "date": "2026-05-15",
@@ -212,6 +240,10 @@
       "event": "INRB genomic sequencing confirms Bundibugyo virus (BDBV). DRC MoH officially declares the 17th Ebola outbreak. Uganda MoH confirms first imported case (died 14 May in Kampala). Africa CDC issues urgent regional coordination call. (WHO DON602; Africa CDC)"
     },
     {
+      "date": "2026-05-15",
+      "event": "DRC MoH officially declares 17th Ebola outbreak in DRC; genomic sequencing confirms Bundibugyo virus (BDBV/Orthoebolavirus bundibugyoense). Uganda MoH simultaneously declares outbreak following first confirmed imported case in Kampala (Kibuli Muslim Hospital). Africa CDC convenes urgent high-level regional coordination meeting with DRC, Uganda, South Sudan and 130+ global partners."
+    },
+    {
       "date": "2026-05-16",
       "event": "Second confirmed Kampala case (fatal). Suspected Kinshasa case reported (later retracted)."
     },
@@ -230,6 +262,10 @@
     {
       "date": "2026-05-16",
       "event": "Second imported case confirmed in Kampala (unlinked to first). WHO Director-General determines outbreak constitutes a PHEIC. 246 suspected cases, 80 suspected deaths in Ituri confirmed at this time-point. (WHO PHEIC declaration)"
+    },
+    {
+      "date": "2026-05-16",
+      "event": "Second unrelated confirmed case reported in Kampala, Uganda. WHO Director-General declares a PHEIC under IHR Article 12 \u2014 without convening an Emergency Committee, citing the gravity of the situation. Africa CDC activates its Incident Management Support Team."
     },
     {
       "date": "2026-05-17",
@@ -258,6 +294,10 @@
     {
       "date": "2026-05-17",
       "event": "US missionary physician Dr. Peter Stafford tests positive for Bundibugyo virus at Nyankunde Hospital near Bunia; CDC confirms an American has tested positive. (Serge charity; CDC briefing)"
+    },
+    {
+      "date": "2026-05-17",
+      "event": "INRB Director Muyembe confirms laboratory-positive case in Goma, North Kivu (M23-held city of >1 million, on Rwandan border). Confirmed case also reported in Beni, North Kivu. Rwanda closes Goma\u2013Gisenyi border crossings indefinitely. American missionary physician Dr. Peter Stafford tests positive for Bundibugyo virus in Bunia; CDC confirms first US national infected."
     },
     {
       "date": "2026-05-18",
@@ -296,12 +336,20 @@
       "event": "CDC current situation page confirms 9 health zones in Ituri Province now affected; EU announces PPE stockpiles ready for deployment and detection kit support to Africa CDC. (CDC; CNN)"
     },
     {
+      "date": "2026-05-18",
+      "event": "Africa CDC formally declares outbreak a Public Health Emergency of Continental Security (PHECS). CDC and DHS invoke Title 42 for at least 30 days restricting entry of non-US nationals who have been in DRC, Uganda or South Sudan within the previous 21 days. US moves 7 people (1 confirmed case, 6 high-risk contacts) from DRC to Germany for treatment/monitoring. US Embassy in Uganda temporarily suspends visa services. DRC Health Minister announces opening of 3 new Ebola treatment centres in affected region. WFP airlifts >5 tonnes of medical supplies to Ituri. OCHA reports 482 suspected cases and ~116 deaths in Ituri province alone."
+    },
+    {
       "date": "2026-05-19",
       "event": "OCHA reports 482+ suspected cases since April in Ituri; confirms Goma case; warns hostile environment (insecurity, displacement, hunger) is severely hampering response; >5 tonnes of supplies airlifted to Ituri by WFP."
     },
     {
       "date": "2026-05-19",
       "event": "UN News and NBC report outbreak approaching ~500 suspected cases and 116 associated deaths; case in Beni (North Kivu) also reported; situation remains rapidly evolving."
+    },
+    {
+      "date": "2026-05-19",
+      "event": "OCHA and UN partners warn hostile environment in eastern DRC is severely hampering response; nearly 10 million people in Ituri, North Kivu, and South Kivu face crisis-level hunger compounding outbreak risk. ECDC deploys expert to Africa CDC headquarters. Reuters witnesses Congolese nationals turned back at Bukavu-Rwanda border. Outbreak total now exceeds 482 suspected cases across at least 9 health zones per OCHA."
     }
   ],
   "history_snapshots": [
@@ -322,120 +370,124 @@
     {
       "date": "2026-05-19",
       "confirmed": 13,
-      "suspected": 395,
-      "deaths": 106,
+      "suspected": 482,
+      "deaths": 116,
       "health_zones": 9
     }
   ],
   "alerts": [
     {
       "level": "critical",
-      "title": "PHEIC declared \u2014 Bundibugyo Ebola, DRC & Uganda",
-      "body": "On 16\u201317 May 2026 the WHO Director-General determined this outbreak constitutes a Public Health Emergency of International Concern (PHEIC) but not a pandemic emergency. No approved vaccines or therapeutics exist for Bundibugyo virus.",
+      "title": "WHO PHEIC Declared \u2014 Bundibugyo Ebola, DRC & Uganda",
+      "body": "WHO Director-General declared the Bundibugyo Ebola outbreak a Public Health Emergency of International Concern on 16\u201317 May 2026, citing cross-border spread, rapid increase in suspected cases and deaths, and a potentially much larger outbreak than currently detected. The declaration does not meet the criteria for a pandemic emergency.",
       "source": "WHO",
       "url": "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern"
     },
     {
       "level": "critical",
-      "title": "Africa CDC declares Public Health Emergency of Continental Security",
-      "body": "Africa CDC declared a PHECS on 18 May 2026, empowering continent-wide coordination. As of that declaration, 395 suspected cases and 106 associated deaths have been reported across DRC and Uganda.",
+      "title": "Africa CDC PHECS Declared \u2014 18 May 2026",
+      "body": "Africa CDC declared the Bundibugyo Ebola outbreak a Public Health Emergency of Continental Security on 18 May 2026, empowering it to lead continental coordination. Africa CDC cited ~395 suspected cases and 106 deaths across DRC and Uganda, with high risk of further regional spread.",
       "source": "Africa CDC",
       "url": "https://africacdc.org/news-item/africa-cdc-declares-the-ongoing-bundibugyo-ebola-outbreak-a-public-health-emergency-of-continental-security/"
     },
     {
       "level": "critical",
-      "title": "Outbreak spreads to Goma (North Kivu) and Beni \u2014 Rwanda border at risk",
-      "body": "INRB confirmed a case in rebel-held Goma on 17 May (wife of a Bunia fatality who travelled while symptomatic), and a case in Beni on 18 May; Rwanda-DRC border is on high alert.",
-      "source": "INRB via AFP / UN News",
-      "url": "https://news.un.org/en/story/2026/05/1167534"
+      "title": "Ebola Confirmed in Goma (North Kivu) \u2014 Population >1 Million",
+      "body": "INRB confirmed a Bundibugyo virus case in Goma, a rebel-held (M23) city of over one million on the DRC\u2013Rwanda border, on 17\u201318 May 2026. The case is a woman who travelled from Bunia while already infected; Rwanda has closed Goma\u2013Gisenyi border crossings indefinitely.",
+      "source": "INRB / Xinhua",
+      "url": "https://english.news.cn/africa/20260518/9c015b5ebe0f4a1797d15a71748ebb29/c.html"
+    },
+    {
+      "level": "critical",
+      "title": "No Approved Vaccine or Therapeutic for Bundibugyo Virus",
+      "body": "WHO, CDC, ECDC, and Africa CDC all confirm there are no approved vaccines or specific therapeutics for Bundibugyo virus; existing licensed Ebola vaccines (Ervebo, Zabdeno/Mvabea) target Zaire ebolavirus and are not considered effective against BDBV. Response relies entirely on supportive care and classic public-health containment.",
+      "source": "WHO DON602",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON602"
     },
     {
       "level": "warning",
-      "title": "US invokes Title 42 travel restrictions; American healthcare worker infected",
-      "body": "On 18 May 2026, CDC and DHS invoked Title 42 entry restrictions on travellers from DRC, Uganda, and South Sudan. A US missionary physician tested positive on 17 May and is being evacuated to Germany along with 6 high-risk contacts.",
+      "title": "US Title 42 Entry Restrictions Invoked \u2014 DRC, Uganda, South Sudan",
+      "body": "CDC and DHS invoked Title 42 on 18 May 2026 for at least 30 days, restricting entry of non-US nationals who have been in DRC, Uganda, or South Sudan within the previous 21 days. An American missionary physician tested positive for Bundibugyo virus in Bunia on 17 May and is being transferred to Germany for treatment.",
       "source": "CDC",
       "url": "https://www.cdc.gov/ebola/situation-summary/index.html"
     },
     {
       "level": "warning",
-      "title": "9 health zones affected in Ituri Province \u2014 rapid geographic expansion",
-      "body": "As of 18 May 2026, CDC confirms the outbreak has spread to 9 health zones in Ituri Province, up from 3 at initial declaration. True caseload is believed substantially higher than confirmed figures.",
-      "source": "CDC",
-      "url": "https://www.cdc.gov/ebola/situation-summary/index.html"
+      "title": "OCHA: 482 Suspected Cases & ~116 Deaths in Ituri Alone as of 19 May",
+      "body": "OCHA reported on 19 May 2026 that more than 482 suspected cases and around 116 deaths have been recorded in Ituri Province since April \u2014 the highest figure yet published \u2014 and warned that insecurity and humanitarian crisis are severely hampering the response.",
+      "source": "OCHA / UN News",
+      "url": "https://english.news.cn/20260519/9eda072e7c8a488bb74e96ffcc68a15b/c.html"
+    },
+    {
+      "level": "warning",
+      "title": "Healthcare-Worker Infections Signal IPC Gaps",
+      "body": "At least 4 deaths among healthcare workers with symptoms consistent with haemorrhagic fever have been reported, and hospital-associated transmission is suspected. ECDC and WHO have flagged critical infection-prevention-and-control gaps in both formal and informal health facilities across Ituri.",
+      "source": "ECDC",
+      "url": "https://www.ecdc.europa.eu/en/news-events/who-declares-ebola-outbreak-democratic-republic-congo-public-health-emergency"
     },
     {
       "level": "info",
-      "title": "No approved Bundibugyo vaccine; candidate therapeutics in pre-clinical stage only",
-      "body": "WHO, CDC, and MSF confirm no licensed vaccines or specific antivirals exist for Bundibugyo virus. CEPI awarded Moderna and Oxford $26.7 M in Jan 2026 to develop candidates; a Chinese mRNA vaccine has shown efficacy in mice but has not reached primate or human trials.",
-      "source": "WHO / CDC / NBC News",
+      "title": "Initial Xpert Tests Were False-Negative \u2014 Diagnosis Delay",
+      "body": "Standard Ebola Xpert cartridges used at Bunia's provincial laboratory returned negative results for the first 20 samples because they were designed for Zaire ebolavirus; Bundibugyo virus was only confirmed after samples were forwarded to INRB Kinshasa, contributing to a 3\u20134 week detection lag.",
+      "source": "WHO DON602 / NPR",
       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON602"
     }
   ],
   "news": [
     {
-      "title": "Ebola outbreak grows to ~500 suspected cases; UN reports 116 deaths as of May 19",
-      "summary": "The UN reported on Monday that the DRC Bundibugyo Ebola outbreak has grown to nearly 500 suspected cases and 116 deaths. An American missionary confirmed positive is being evacuated to Germany for treatment along with 6 high-risk contacts.",
-      "source": "NBC News",
-      "url": "https://www.nbcnews.com/health/health-news/ebola-outbreak-2026-bundibugyo-symptoms-how-spread-treatment-what-know-rcna345696",
+      "title": "OCHA: Eastern DRC Hostility Hampering Ebola Response; 482+ Suspected Cases",
+      "summary": "OCHA warned on 19 May 2026 that insecurity, population displacement, and food crisis are severely complicating surveillance and response in Ituri. More than 482 suspected cases and ~116 deaths in Ituri alone have been reported since April, with WFP having airlifted 5+ tonnes of supplies to the province.",
+      "source": "UN News / OCHA via Xinhua",
+      "url": "https://english.news.cn/20260519/9eda072e7c8a488bb74e96ffcc68a15b/c.html",
       "date": "2026-05-19",
       "tags": [
-        "Confirmed case",
-        "WHO",
-        "Travel",
-        "Containment"
-      ]
-    },
-    {
-      "title": "Africa CDC declares Bundibugyo Ebola outbreak a continental security emergency",
-      "summary": "Africa CDC invoked its PHECS designation on 18 May 2026, reporting 395 suspected cases and 106 deaths across DRC and Uganda. The declaration allows Africa CDC to lead and resource a continent-wide coordinated response.",
-      "source": "Africa CDC",
-      "url": "https://africacdc.org/news-item/africa-cdc-declares-the-ongoing-bundibugyo-ebola-outbreak-a-public-health-emergency-of-continental-security/",
-      "date": "2026-05-18",
-      "tags": [
         "WHO",
         "Containment",
-        "Funding"
-      ]
-    },
-    {
-      "title": "US CDC invokes Title 42 travel restrictions; evacuates exposed Americans to Germany",
-      "summary": "CDC and DHS on 18 May imposed entry restrictions on non-US passport holders who have been in DRC, Uganda, or South Sudan within 21 days. Seven Americans, including one confirmed Ebola case, are being transferred to Germany for care and quarantine.",
-      "source": "CDC",
-      "url": "https://www.cdc.gov/ebola/situation-summary/index.html",
-      "date": "2026-05-18",
-      "tags": [
-        "Travel",
-        "Containment",
+        "Funding",
         "Confirmed case"
       ]
     },
     {
-      "title": "American missionary Dr. Peter Stafford tests positive for Bundibugyo Ebola in DRC",
-      "summary": "Dr. Stafford, a physician with Christian nonprofit Serge treating patients at Nyankunde Hospital near Bunia, tested positive on 17 May. His wife and colleague were exposed but asymptomatic; the family is preparing evacuation to Germany.",
-      "source": "Newsweek",
-      "url": "https://www.newsweek.com/ebola-outbreak-peter-stafford-drc-missionary-11964751",
+      "title": "Africa CDC Declares Bundibugyo Ebola a Public Health Emergency of Continental Security",
+      "summary": "Africa CDC officially declared a PHECS on 18 May 2026, citing ~395 suspected cases and 106 deaths across DRC and Uganda, and deep concern about regional spread toward Rwanda and South Sudan. The declaration empowers Africa CDC to lead and coordinate responses across AU member states.",
+      "source": "Africa CDC",
+      "url": "https://africacdc.org/news-item/africa-cdc-declares-the-ongoing-bundibugyo-ebola-outbreak-a-public-health-emergency-of-continental-security/",
       "date": "2026-05-18",
       "tags": [
+        "Africa CDC",
+        "Containment",
+        "WHO"
+      ]
+    },
+    {
+      "title": "American Missionary Physician Tests Positive in DRC; US Invokes Title 42",
+      "summary": "Dr. Peter Stafford tested positive for Bundibugyo virus in Bunia on 17 May 2026; CDC confirmed an American was infected and is being transferred to Germany. CDC and DHS invoked Title 42 on 18 May restricting entry from DRC, Uganda and South Sudan for at least 30 days.",
+      "source": "CNN",
+      "url": "https://edition.cnn.com/2026/05/18/africa/ebola-outbreak-global-efforts-americans-intl-hnk",
+      "date": "2026-05-18",
+      "tags": [
+        "Travel",
         "Confirmed case",
-        "Travel"
+        "CDC"
       ]
     },
     {
-      "title": "Reuters explainer: What do we know about the Bundibugyo Ebola strain?",
-      "summary": "Reuters details that no approved vaccines or drugs exist for Bundibugyo virus; candidate therapeutics including Merck's Ervebo and Mapp Biopharmaceutical's MBP134 have shown promise in non-human primates but remain unapproved. NanoViricides' NV-387 antiviral is in early-stage clinical trials.",
-      "source": "Reuters / US News",
-      "url": "https://www.usnews.com/news/world/articles/2026-05-18/explainer-what-do-we-know-about-the-bundibugyo-strain-of-the-ebola-virus",
+      "title": "CDC Situation Update: 11 Confirmed, 336 Suspected, 88 Deaths in DRC as of 18 May",
+      "summary": "CDC's current-situation page updated 18 May 2026 confirms 11 confirmed cases and 336 suspected cases including 88 deaths in DRC, and 2 confirmed cases including 1 death in Uganda, with the outbreak spanning 9 health zones in Ituri Province.",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/ebola/situation-summary/index.html",
       "date": "2026-05-18",
       "tags": [
-        "Vaccine",
-        "Research"
+        "CDC",
+        "Confirmed case",
+        "WHO"
       ]
     },
     {
-      "title": "Bloomberg: American missionary tests positive; US bans travel from stricken area",
-      "summary": "A US missionary confirmed positive for Ebola in DRC is showing symptoms and being sent to Germany for treatment, CDC incident manager Satish Pillai confirmed. Six additional Americans with possible exposure are also being relocated to Germany.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/cdc-working-to-get-some-americans-out-of-ebola-region-in-congo",
+      "title": "Ebola Confirmed in Rebel-Held Goma; Rwanda Closes Border Crossings",
+      "summary": "INRB director Muyembe confirmed a Bundibugyo case in Goma, North Kivu \u2014 a city of over 1 million under M23 rebel control \u2014 on 17\u201318 May 2026. Rwanda immediately closed key Goma\u2013Gisenyi border posts indefinitely, defying WHO guidance against blanket border closures.",
+      "source": "Xinhua",
+      "url": "https://english.news.cn/africa/20260518/9c015b5ebe0f4a1797d15a71748ebb29/c.html",
       "date": "2026-05-18",
       "tags": [
         "Confirmed case",
@@ -444,10 +496,22 @@
       ]
     },
     {
-      "title": "WHO declares Ebola outbreak in DRC and Uganda a global health emergency",
-      "summary": "WHO Director-General Tedros declared the Bundibugyo Ebola outbreak a PHEIC on 16\u201317 May 2026, citing cross-border spread, a high sample positivity rate, and the absence of approved vaccines. The outbreak does not meet pandemic emergency criteria.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/5/17/who-declares-ebola-outbreak-in-dr-congo-uganda-a-global-health-emergency",
+      "title": "NPR: Late US Notification and Funding Cuts Tied to Outbreak's Head Start",
+      "summary": "NPR reports CDC only learned of the Ebola outbreak on 14 May, the day before it was announced, after the virus had been circulating for ~3 weeks undetected. Public health experts link the detection delay to cuts in USAID's DRC mission and shrinking WHO emergency capacity following US withdrawal.",
+      "source": "NPR",
+      "url": "https://www.npr.org/2026/05/18/g-s1-122655/ebola-outbreak-democratic-republic-congo-uganda",
+      "date": "2026-05-18",
+      "tags": [
+        "Funding",
+        "Research",
+        "CDC"
+      ]
+    },
+    {
+      "title": "WHO Declares Bundibugyo Ebola Outbreak a PHEIC Without Emergency Committee",
+      "summary": "WHO Director-General Tedros declared a PHEIC on 16\u201317 May 2026 in an unprecedented move without first convening an Expert Emergency Committee, citing the gravity and pace of the outbreak. The outbreak does not yet meet pandemic emergency criteria under IHR.",
+      "source": "WHO",
+      "url": "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern",
       "date": "2026-05-17",
       "tags": [
         "WHO",
@@ -455,60 +519,63 @@
       ]
     },
     {
-      "title": "Ebola confirmed in Goma: wife of Bunia victim carried virus to North Kivu",
-      "summary": "INRB director Prof. Jean-Jacques Muyembe confirmed a positive case in rebel-held Goma on 17 May \u2014 the wife of a man who died of Ebola in Bunia, who travelled while already infected. The Rwanda-DRC border went on high alert.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/5/17/who-declares-ebola-outbreak-in-drc-uganda-a-global-emergency-what-to-know",
+      "title": "STAT News: Number of Americans Exposed to Ebola in DRC Growing",
+      "summary": "STAT News reported on 17 May that multiple US nationals in DRC are believed to have had exposure to suspected Ebola cases, with at least one developing symptoms. The US government arranged to transport exposed Americans to Germany, with some quarantined at a US military base.",
+      "source": "STAT News",
+      "url": "https://www.statnews.com/2026/05/17/ebola-outbreak-congo-americans-exposure-suspected-cases/",
       "date": "2026-05-17",
       "tags": [
         "Confirmed case",
-        "WHO"
+        "Travel",
+        "CDC"
       ]
     },
     {
-      "title": "CNN: Over 100 deaths and no approved vaccine \u2014 what to know about the Ebola PHEIC",
-      "summary": "CNN reports more than 395 suspected cases and 106 deaths as of 19 May 2026 after Africa CDC's PHECS declaration; no approved vaccine or therapeutic exists for Bundibugyo. MSF emergency program manager called the spread 'extremely concerning.'",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/05/17/africa/ebola-outbreak-congo-uganda-explainer-intl",
-      "date": "2026-05-19",
+      "title": "WHO DON602: First Case a Healthcare Worker; False-Negative Tests Delayed Detection",
+      "summary": "WHO's Disease Outbreak News (DON602) documents that standard Ebola Xpert tests at Bunia's provincial lab were negative for the first 20 samples because they target Zaire ebolavirus; BDBV was confirmed only after samples reached INRB Kinshasa, delaying the outbreak declaration by weeks.",
+      "source": "WHO DON602",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON602",
+      "date": "2026-05-17",
       "tags": [
         "WHO",
-        "Vaccine",
-        "Containment"
+        "Research",
+        "Confirmed case"
       ]
     },
     {
-      "title": "Ebola outbreak in Ituri follows DRC hunger and displacement crisis \u2014 UN",
-      "summary": "UN News reports the Ebola emergency is unfolding against a pre-existing catastrophic humanitarian crisis in DRC's east; aid cuts are cited as having weakened surveillance, allowing the outbreak to grow undetected for weeks.",
-      "source": "UN News",
-      "url": "https://news.un.org/en/story/2026/05/1167534",
+      "title": "LSHTM Rapid Reaction: Outbreak Exposes Gaps in Global Preparedness for Rare Filoviruses",
+      "summary": "London School of Hygiene & Tropical Medicine experts warned on 18 May 2026 that the outbreak highlights the absence of broad-spectrum diagnostics, vaccines, and therapeutics covering non-Zaire Ebola species. They called for accelerated investment in multivalent filovirus countermeasures.",
+      "source": "LSHTM",
+      "url": "https://www.lshtm.ac.uk/newsevents/news/2026/rapid-reaction-ebola-outbreak-drc-and-uganda",
       "date": "2026-05-18",
       "tags": [
-        "WHO",
-        "Funding"
-      ]
-    },
-    {
-      "title": "Imperial College London experts: This is already the largest Bundibugyo outbreak ever",
-      "summary": "Imperial College School of Public Health experts note that with 246+ suspected cases this outbreak surpasses all previous Bundibugyo outbreaks combined, ranking 7th largest across all Ebola species, and likely went undetected for weeks or months.",
-      "source": "Imperial College London",
-      "url": "https://www.imperial.ac.uk/news/articles/2026/ebola-outbreak-2026-qa-with-experts/",
-      "date": "2026-05-17",
-      "tags": [
         "Research",
+        "Vaccine",
         "WHO"
       ]
     },
     {
-      "title": "NPR: WHO declares Ebola in Congo a global health emergency; no vaccine for the strain",
-      "summary": "NPR reports on the PHEIC and highlights that Africa CDC has confirmed a candidate monkey-tested experimental vaccine with ~50% efficacy but it has not been studied in human patients, leaving only supportive care as treatment.",
-      "source": "NPR",
-      "url": "https://www.npr.org/2026/05/16/g-s1-122494/a-new-ebola-outbreak-has-already-killed-87-people",
-      "date": "2026-05-17",
+      "title": "NBC News: No Vaccines or Treatments Exist for Bundibugyo; Experimental Candidates in Early Development",
+      "summary": "NBC News reports that the only two licensed Ebola vaccines target Zaire ebolavirus and animal studies show they do not protect against Bundibugyo. A handful of experimental candidates \u2014 including an mRNA vaccine from China covering three Ebola strains \u2014 remain in early pre-clinical development with none in human trials.",
+      "source": "NBC News",
+      "url": "https://www.nbcnews.com/health/health-news/ebola-outbreak-2026-bundibugyo-symptoms-how-spread-treatment-what-know-rcna345696",
+      "date": "2026-05-19",
       "tags": [
         "Vaccine",
-        "WHO",
-        "Research"
+        "Research",
+        "CDC"
+      ]
+    },
+    {
+      "title": "Reuters: Health Workers Race to Reach DRC Frontlines; Uganda Postpones Martyrs' Day",
+      "summary": "Reuters reports medical personnel mobilising to Ituri even as DRC's Congo Health Cluster records 105 suspected deaths and 393 suspected cases across nine Ituri health zones. Uganda postponed its Martyrs' Day celebration \u2014 which typically draws thousands of pilgrims from eastern DRC \u2014 due to outbreak risk.",
+      "source": "Reuters via The Express Tribune",
+      "url": "https://tribune.com.pk/story/2608832/health-workers-race-to-contain-congos-fast-spreading-ebola-outbreak",
+      "date": "2026-05-19",
+      "tags": [
+        "Containment",
+        "Travel",
+        "WHO"
       ]
     }
   ],
@@ -517,12 +584,12 @@
       "virus": "Bundibugyo virus (BDBV); formal species name Orthoebolavirus bundibugyoense",
       "family": "Filoviridae",
       "genus": "Orthoebolavirus (formerly Ebolavirus)",
-      "discovery": "2007, during an outbreak in Bundibugyo District, Uganda; genomic sequencing confirmed a novel species",
-      "case_fatality_rate_historical": "25\u201351% (WHO historical range); MSF and Johns Hopkins experts cite 25\u201340% for BDBV specifically in current outbreak context",
-      "transmission": "Direct contact with blood, body fluids, or tissues of infected people or animals; contact with contaminated surfaces or fomites. Individuals are infectious only when symptomatic.",
+      "discovery": "2007, during an outbreak in Bundibugyo District, Uganda; genomic sequencing confirmed a novel species distinct from Zaire ebolavirus by ~30% genetic divergence",
+      "case_fatality_rate_historical": "25\u201351% (WHO/CDC historical range for BDBV specifically; past BDBV outbreaks ranged 25\u201334%; WHO DON602 for current outbreak cites 30\u201350%); MSF and Johns Hopkins experts cite 25\u201340% for BDBV in current outbreak context",
+      "transmission": "Direct contact with blood, body fluids, or tissues of infected people or animals; contact with contaminated surfaces, fomites, or bodies of deceased individuals. Individuals are infectious only when symptomatic. Fruit bats are the suspected zoonotic reservoir.",
       "incubation_days": "2\u201321",
-      "symptoms": "Sudden fever, fatigue, muscle pain, headache, sore throat \u2014 followed by vomiting, diarrhoea, rash, impaired kidney/liver function, internal and external bleeding; nosebleeds and vomiting blood reported in current outbreak.",
-      "vaccines_therapeutics": "No WHO-approved or FDA-approved vaccines or specific therapeutics exist for Bundibugyo virus as of May 2026. The two licensed Ebola vaccines (Merck Ervebo, J&J Zabdeno/Mvabea) target Zaire ebolavirus and provide poor cross-protection against BDBV per animal studies. Candidate countermeasures showing promise in non-human primates include Merck Ervebo (partial), Mapp Biopharmaceutical MBP134, and Auro Vaccines VesiculoVax. NanoViricides' NV-387 antiviral (currently in mpox clinical trials) is proposed as a candidate. An mRNA multivalent vaccine targeting BDBV is in pre-clinical (mouse) stage \u2014 published in PNAS May 2026 \u2014 but has not entered primate or human trials. CEPI awarded Moderna and the University of Oxford $26.7 million in January 2026 to develop multivalent Ebola mRNA and viral vector platforms covering BDBV. All BDBV-specific candidates remain pre-licensure; supportive care is the current standard of treatment."
+      "symptoms": "Sudden fever, fatigue, muscle pain, headache, sore throat \u2014 followed by vomiting, diarrhoea, abdominal pain, rash, impaired kidney/liver function, internal and external bleeding; nosebleeds and vomiting blood reported in current outbreak. CDC notes most current DRC cases are aged 20\u201339 and two-thirds are female.",
+      "vaccines_therapeutics": "No WHO-approved or FDA-approved vaccines or specific therapeutics exist for Bundibugyo virus as of May 2026, confirmed by WHO, CDC, Africa CDC, and ECDC. The two licensed Ebola vaccines \u2014 Merck Ervebo and J&J Zabdeno/Mvabea \u2014 target Zaire ebolavirus; FDA has explicitly noted Ervebo is not considered effective for the spring 2026 Bundibugyo outbreak. Animal studies confirm poor cross-protection against BDBV. Candidate countermeasures in early development include: Mapp Biopharmaceutical MBP134 (non-human primate studies); an mRNA multivalent vaccine targeting BDBV and two other Ebola species published May 2026 in PNAS (pre-clinical mouse stage only, not in human trials); CEPI/Moderna/Oxford $26.7M multivalent mRNA and viral vector platform (pre-clinical). Africa CDC has activated a medical countermeasures workstream to assess available diagnostics, PPE, therapeutics, vaccines and cold-chain needs. All BDBV-specific candidates remain pre-licensure; supportive care (rehydration, oxygen, treating secondary infections) is the current standard of treatment."
     },
     "past_outbreaks": [
       {
@@ -531,7 +598,7 @@
         "cases": 149,
         "deaths": 37,
         "cfr": "25%",
-        "notes": "First identified outbreak; led to the discovery and naming of the Bundibugyo strain."
+        "notes": "First identified outbreak; led to the discovery and naming of the Bundibugyo strain; genomic sequencing confirmed a novel Orthoebolavirus species."
       },
       {
         "year": "2012",
@@ -539,7 +606,7 @@
         "cases": 38,
         "deaths": 13,
         "cfr": "34%",
-        "notes": "Second documented Bundibugyo outbreak; contained within months in a remote area."
+        "notes": "Second documented Bundibugyo outbreak; contained within months in a remote area; second and last BDBV outbreak prior to 2026."
       },
       {
         "year": "2018\u20132020",
@@ -547,7 +614,7 @@
         "cases": 3470,
         "deaths": 2287,
         "cfr": "66%",
-        "notes": "Second-largest Ebola outbreak in history, different species (Zaire ebolavirus), but same geographic zone and containment challenges (insecurity, mobile populations, mistrust)."
+        "notes": "Second-largest Ebola outbreak in history, different species (Zaire ebolavirus), but same geographic zone and containment challenges (insecurity, mobile populations, mistrust); relevant precedent for current response difficulties."
       },
       {
         "year": "2025",
@@ -555,26 +622,27 @@
         "cases": 64,
         "deaths": 45,
         "cfr": "70%",
-        "notes": "DRC's 16th Ebola outbreak, declared on 4 September 2025 and declared over 1 December 2025; 53 confirmed, 11 probable cases."
+        "notes": "DRC's 16th Ebola outbreak, declared 4 September 2025 and over 1 December 2025; 53 confirmed, 11 probable cases; immediately preceded the current outbreak."
       },
       {
         "year": "2026",
-        "location": "Ituri Province (epicentre), North Kivu Province, Kinshasa \u2014 DRC; Kampala \u2014 Uganda",
-        "cases": 395,
-        "deaths": 106,
-        "cfr": "~27% of suspected (true CFR undetermined pending full case ascertainment)",
-        "notes": "Third and largest Bundibugyo outbreak ever; declared a PHEIC on 16\u201317 May 2026 and a PHECS by Africa CDC on 18 May 2026; at least 9 health zones affected; no approved vaccine or therapeutic."
+        "location": "Ituri Province (epicentre), North Kivu Province (Goma, Beni), Kinshasa (retracted) \u2014 DRC; Kampala \u2014 Uganda",
+        "cases": 482,
+        "deaths": 116,
+        "cfr": "~24% of suspected (true CFR undetermined pending full case ascertainment; BDBV historical range 25\u201350%)",
+        "notes": "Third and largest Bundibugyo outbreak ever recorded; declared PHEIC by WHO 16\u201317 May 2026 and PHECS by Africa CDC 18 May 2026; at least 9 health zones in Ituri affected; spread confirmed to Goma and Beni in North Kivu and imported cases in Kampala, Uganda; no approved vaccine or therapeutic; detection delayed ~3 weeks due to false-negative standard Xpert tests."
       }
     ],
     "why_this_matters": [
-      "This is the largest Bundibugyo outbreak ever recorded, surpassing the combined case counts of the two previous BDBV outbreaks and already ranking 7th largest across all Ebola species historically.",
-      "No approved vaccines or therapeutics exist for Bundibugyo virus; existing licensed Ebola vaccines target Zaire ebolavirus and provide poor cross-protection, leaving response entirely dependent on classic public-health containment measures.",
-      "The outbreak zone overlaps with active armed conflict in eastern DRC (Ituri and North Kivu), severely impeding access, contact tracing, and the safe operation of treatment centres.",
-      "Cross-border spread to Uganda confirmed within days of initial detection, and a confirmed case has now reached rebel-held Goma (North Kivu), raising the risk of further regional spread into Rwanda, South Sudan, and beyond.",
-      "Healthcare worker deaths (at least 4 confirmed) and suspected hospital-acquired transmission indicate critical infection prevention and control (IPC) gaps, amplifying outbreak risk.",
-      "The outbreak likely went undetected for 3\u20134 weeks before reporting, partly because standard Ebola field tests (Xpert, targeting Zaire ebolavirus) returned false negatives; the true caseload is almost certainly substantially higher than official figures.",
-      "A US citizen healthcare worker has been infected, prompting US Title 42 travel restrictions and underscoring the outbreak's international reach.",
-      "Cuts to global and US public-health funding in 2025\u20132026 have been directly linked by public-health experts and Oxfam to the surveillance gaps that allowed this outbreak to grow undetected."
+      "This is the largest Bundibugyo outbreak ever recorded, with 482+ suspected cases already more than triple the combined total of the two prior BDBV outbreaks (187 cases), and deaths exceeding those two outbreaks combined.",
+      "No approved vaccines or therapeutics exist for Bundibugyo virus; the two licensed Ebola vaccines target Zaire ebolavirus and are explicitly noted by the FDA and WHO as not effective for this outbreak, leaving response entirely dependent on classic public-health containment.",
+      "The outbreak has now spread beyond its Ituri epicentre to Goma and Beni in North Kivu \u2014 a city of over 1 million on the Rwandan border \u2014 sharply elevating the risk of cross-border transmission into Rwanda, Burundi, Tanzania, and beyond.",
+      "The outbreak zone is in the heart of an active armed conflict in eastern DRC; M23 rebels control Goma, severely impeding access, contact tracing, and the safe operation of treatment centres for one of the outbreak's newest hot spots.",
+      "Standard Ebola Xpert field tests returned false negatives for the first 20 samples because they were designed for Zaire ebolavirus, causing a 3\u20134 week diagnostic delay; Bundibugyo virus's ~30% genetic divergence from Zaire ebolavirus is a critical gap in current field-diagnostic infrastructure.",
+      "Healthcare-worker deaths (at least 4 confirmed) and suspected hospital-acquired transmission indicate critical IPC gaps, with the outbreak amplified through both formal and informal health facilities across Ituri.",
+      "A US citizen healthcare worker (Dr. Peter Stafford) has been confirmed infected in Bunia, prompting US Title 42 travel restrictions \u2014 only the second invocation of this authority in the modern era \u2014 and entry bans on non-US nationals from DRC, Uganda, and South Sudan.",
+      "Cuts to global public-health funding \u2014 including USAID DRC mission closure, reduced CDC capacity, and US withdrawal from WHO \u2014 have been directly linked by public-health experts and Oxfam to surveillance failures that allowed this outbreak to accumulate hundreds of cases before detection.",
+      "An Emergency Committee has yet to be convened (WHO Director-General acted unilaterally), and CEPI/Moderna/Oxford's multivalent BDBV mRNA vaccine platform \u2014 the most advanced candidate \u2014 remains in pre-clinical development with no human-trial timeline confirmed."
     ]
   }
 }
