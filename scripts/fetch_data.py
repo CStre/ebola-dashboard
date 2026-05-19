@@ -95,7 +95,7 @@ Return a SINGLE JSON object with this exact shape:
       "tier": "epicenter" | "high" | "new" | "international" | "retracted",
       "first_reported": "YYYY-MM-DD",
       "confirmed_cases": <int — confirmed cases AT THIS LOCATION, omit if unknown>,
-      "suspected_cases": <int — suspected cases AT THIS LOCATION, omit if unknown>,
+      "suspected_cases": <int — suspected cases AT THIS LOCATION, omit if unknown. Some WHO/MoH bulletins DO publish suspected-case breakdowns by health zone — search for a SitRep, bulletin, or MoH dashboard that does, and only omit if no source reports per-location suspected.>,
       "deaths": <int — deaths AT THIS LOCATION, omit if unknown>,
       "notes": "<one-sentence description grounded in your sources>"
     }}

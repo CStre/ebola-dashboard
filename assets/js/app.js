@@ -399,26 +399,41 @@
         return totalB - totalA;
       });
       const labels = sorted.map((l) => `${shortLocationName(l.name)}, ${shortCountry(l.country)}`);
-      datasets = [
-        {
+
+      // Only include the suspected-cases series if at least one location
+      // has it. Most sources publish suspected only as a national aggregate,
+      // not per-location, so we don't want to show an empty stacked legend.
+      const anyConfirmed = sorted.some((l) => (l.confirmed_cases || 0) > 0);
+      const anySuspected = sorted.some((l) => (l.suspected_cases || 0) > 0);
+
+      datasets = [];
+      if (anyConfirmed) {
+        datasets.push({
           label: 'Confirmed',
           data: sorted.map((l) => l.confirmed_cases || 0),
           backgroundColor: ACCENT_2,
           borderRadius: 4,
           borderSkipped: false,
           stack: 'cases',
-        },
-        {
+        });
+      }
+      if (anySuspected) {
+        datasets.push({
           label: 'Suspected',
           data: sorted.map((l) => l.suspected_cases || 0),
           backgroundColor: 'rgba(255,138,61,0.35)',
           borderRadius: 4,
           borderSkipped: false,
           stack: 'cases',
-        },
-      ];
-      xTitle = `Cases by location (${withCounts.length} of ${active.length} reporting)`;
-      _renderChartLocations(el, labels, datasets, sorted, true);
+        });
+      }
+
+      const stacked = datasets.length > 1;
+      const titlePrefix = stacked
+        ? 'Cases by location'
+        : (anyConfirmed ? 'Confirmed cases by location' : 'Suspected cases by location');
+      xTitle = `${titlePrefix} (${withCounts.length} of ${active.length} reporting)`;
+      _renderChartLocations(el, labels, datasets, sorted, stacked);
     } else {
       // Fallback: days since first reported, color-coded by tier.
       const today = new Date();
@@ -449,6 +464,7 @@
   }
 
   function _renderChartLocations(el, labels, datasets, items, stacked) {
+    const labeled = datasets.length === 1 && datasets[0].label && datasets[0].label !== 'Days since first reported';
     _charts.byLocation = new Chart(el, {
       type: 'bar',
       data: { labels, datasets },
@@ -457,7 +473,7 @@
         maintainAspectRatio: false,
         indexAxis: 'y',
         plugins: {
-          legend: { display: stacked, labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+          legend: { display: stacked || labeled, labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
           tooltip: {
             backgroundColor: '#0f1424',
             borderColor: 'rgba(255,255,255,0.14)',
@@ -751,10 +767,10 @@
         return str.length > n ? str.slice(0, n - 1).trim() + '…' : str;
       };
       const factsList = [
-        ['Virus', truncate(facts.virus, 60)],
-        ['Family', truncate(facts.family, 60)],
-        ['Discovered', truncate(facts.discovery, 60)],
-        ['Historic CFR', truncate(facts.case_fatality_rate_historical, 60)],
+        ['Virus', facts.virus],
+        ['Family', facts.family],
+        ['Discovered', facts.discovery],
+        ['Historic CFR', facts.case_fatality_rate_historical],
         ['Incubation', facts.incubation_days ? `${facts.incubation_days}${/\d/.test(String(facts.incubation_days)) && !/day/i.test(String(facts.incubation_days)) ? ' days' : ''}` : ''],
         ['Vaccines / therapeutics', truncate(facts.vaccines_therapeutics, 80)],
       ];
