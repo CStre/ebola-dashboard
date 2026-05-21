@@ -147,9 +147,12 @@
     <section class="container section" id="timeline">
       <div class="section-head reveal">
         <h2>Timeline</h2>
-        <p>Key events since the outbreak was first flagged.</p>
+        <p>Key events since the outbreak was first flagged. Select a date to see that day's events.</p>
       </div>
-      <ol class="timeline reveal" id="timeline-list"></ol>
+      <div class="timeline reveal">
+        <div class="tl-rail" id="tl-rail" role="tablist" aria-label="Timeline dates"></div>
+        <div class="tl-panel" id="tl-panel" role="tabpanel" aria-live="polite"></div>
+      </div>
     </section>
 
     <section class="container section" id="context">

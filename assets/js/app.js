@@ -745,15 +745,109 @@
     });
   }
 
+  const TL_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   function renderTimeline(items = []) {
-    const root = document.getElementById('timeline-list');
-    if (!root) return;
-    root.innerHTML = '';
+    const rail = document.getElementById('tl-rail');
+    const panel = document.getElementById('tl-panel');
+    if (!rail || !panel) return;
+    rail.innerHTML = '';
+    panel.innerHTML = '';
+
+    // Group the flat {date, event} list the fetcher produces into per-day buckets.
+    const groups = new Map();
     items.forEach((item) => {
-      const li = document.createElement('li');
-      li.innerHTML = `<span class="t-date">${item.date}</span><span class="t-event">${item.event}</span>`;
-      root.appendChild(li);
+      const date = item.date || 'Undated';
+      if (!groups.has(date)) groups.set(date, []);
+      groups.get(date).push(item.event || '');
     });
+    const dates = Array.from(groups.keys()).sort(); // chronological, oldest → newest
+
+    if (!dates.length) {
+      panel.innerHTML = '<p class="tl-empty">No timeline events yet.</p>';
+      return;
+    }
+
+    const parseDate = (s) => {
+      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+      return m ? { y: +m[1], mo: +m[2], d: +m[3] } : null;
+    };
+    const longDate = (s) => {
+      const p = parseDate(s);
+      if (!p) return s;
+      return new Date(p.y, p.mo - 1, p.d).toLocaleDateString('en-US', {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+      });
+    };
+    const centerInRail = (btn, smooth) => {
+      const left = btn.offsetLeft - (rail.clientWidth - btn.clientWidth) / 2;
+      rail.scrollTo({ left: Math.max(0, left), behavior: smooth ? 'smooth' : 'auto' });
+    };
+
+    function selectDate(date) {
+      rail.querySelectorAll('.tl-date').forEach((b) => {
+        const on = b.dataset.date === date;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+      });
+      const events = groups.get(date) || [];
+      panel.innerHTML = '';
+      const head = document.createElement('div');
+      head.className = 'tl-panel-head';
+      head.innerHTML =
+        `<span class="tl-panel-date">${longDate(date)}</span>` +
+        `<span class="tl-panel-count">${events.length} event${events.length === 1 ? '' : 's'}</span>`;
+      panel.appendChild(head);
+      const ol = document.createElement('ol');
+      ol.className = 'tl-events';
+      events.forEach((ev) => {
+        const li = document.createElement('li');
+        li.className = 'tl-event';
+        li.textContent = ev;
+        ol.appendChild(li);
+      });
+      panel.appendChild(ol);
+    }
+
+    dates.forEach((date) => {
+      const p = parseDate(date);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tl-date';
+      btn.dataset.date = date;
+      btn.setAttribute('role', 'tab');
+      btn.innerHTML =
+        '<span class="tl-dot"></span>' +
+        `<span class="tl-mon">${p ? TL_MONTHS[p.mo - 1] : ''}</span>` +
+        `<span class="tl-day">${p ? p.d : date}</span>` +
+        `<span class="tl-count">${groups.get(date).length}</span>`;
+      btn.addEventListener('click', () => {
+        selectDate(date);
+        centerInRail(btn, true);
+      });
+      rail.appendChild(btn);
+    });
+
+    // Arrow-key navigation across the rail (bound once — the rail node persists).
+    if (!rail.dataset.kbd) {
+      rail.dataset.kbd = '1';
+      rail.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        const btns = Array.from(rail.querySelectorAll('.tl-date'));
+        const i = btns.findIndex((b) => b.classList.contains('is-active'));
+        if (i < 0) return;
+        const ni = e.key === 'ArrowLeft' ? Math.max(0, i - 1) : Math.min(btns.length - 1, i + 1);
+        if (ni !== i) { btns[ni].click(); btns[ni].focus(); }
+        e.preventDefault();
+      });
+    }
+
+    // Default to the most recent date, scrolled into view.
+    const latest = dates[dates.length - 1];
+    selectDate(latest);
+    centerInRail(rail.lastElementChild, false);
   }
 
   function renderContext(history) {

@@ -9,7 +9,7 @@ A static, single-page dashboard tracking the 2026 Ebola Bundibugyo outbreak in D
 - **Live site**: https://cstre.github.io/ebola-dashboard/
 - **Repo**: https://github.com/CStre/ebola-dashboard
 - **Hosting**: GitHub Pages, deploys from `main` branch root
-- **Refresh cadence**: twice daily via GitHub Actions cron — 12:00 UTC (~8 AM ET) and 22:00 UTC (~6 PM ET). Times float 1h across DST since cron has no TZ support. Also `workflow_dispatch`-able.
+- **Refresh cadence**: twice daily via GitHub Actions cron — 12:17 UTC (~8 AM ET) and 22:17 UTC (~6 PM ET). Minute is `:17` not `:00` — top-of-hour crons queue behind GitHub's heaviest scheduled-job load and drift hours late. Times still float 1h across DST since cron has no TZ support. Also `workflow_dispatch`-able.
 
 ## Stack
 
@@ -45,7 +45,7 @@ ebola-dashboard/
 ## Data flow
 
 ```
-GHA cron (0 */4 * * *)
+GHA cron (17 12,22 * * *)
   → scripts/fetch_data.py
       → anthropic.Messages.create(model=claude-sonnet-4-6, tools=[web_search_20250305])
       → parses JSON from model output (handles ```json fences)
@@ -63,7 +63,7 @@ The frontend reads this. The fetcher writes this. Keys the model produces fresh 
 {
   "meta": {
     "last_updated": "ISO 8601 UTC",
-    "next_update": "ISO 8601 UTC (fetcher sets to the next 12:00/22:00 UTC firing)",
+    "next_update": "ISO 8601 UTC (fetcher sets to the next 12:17/22:17 UTC firing)",
     "disease": "Ebola disease (Bundibugyo virus)",
     "phase": "PHEIC label",
     "declared_at": "ISO 8601",

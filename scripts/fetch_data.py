@@ -1,7 +1,7 @@
 """Fetch latest outbreak data using Claude's web search and write data/outbreak.json.
 
-Designed to run from GitHub Actions on a 4-hour cron. Requires the
-ANTHROPIC_API_KEY environment variable.
+Designed to run from GitHub Actions twice daily (12:17 / 22:17 UTC).
+Requires the ANTHROPIC_API_KEY environment variable.
 
 The script:
   1. Loads the existing data file to use as "previous totals" context.
@@ -291,13 +291,13 @@ def call_claude(existing: dict, prev_history: dict) -> dict:
 
 
 def _next_scheduled_run(now: datetime) -> datetime:
-    """Return the next scheduled cron firing time (12:00 or 22:00 UTC)."""
-    candidates = [now.replace(hour=12, minute=0, second=0, microsecond=0),
-                  now.replace(hour=22, minute=0, second=0, microsecond=0)]
+    """Return the next scheduled cron firing time (12:17 or 22:17 UTC)."""
+    candidates = [now.replace(hour=12, minute=17, second=0, microsecond=0),
+                  now.replace(hour=22, minute=17, second=0, microsecond=0)]
     for c in candidates:
         if c > now:
             return c
-    # both already passed today; next is tomorrow at 12:00 UTC
+    # both already passed today; next is tomorrow at 12:17 UTC
     return candidates[0] + timedelta(days=1)
 
 
