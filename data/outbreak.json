@@ -1,23 +1,22 @@
 {
   "meta": {
-    "last_updated": "2026-07-04T23:17:59+00:00",
-    "next_update": "2026-07-05T12:17:00+00:00",
+    "last_updated": "2026-07-05T14:14:43+00:00",
+    "next_update": "2026-07-05T22:17:00+00:00",
     "data_sources": [
-      "WHO DON612 (who.int, 2026-07-03) https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612",
-      "ECDC Ebola Outbreak Tracker (ecdc.europa.eu, 2026-07-03) https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
-      "CDC Ebola Current Situation (cdc.gov, 2026-07-01) https://www.cdc.gov/ebola/situation-summary/index.html",
-      "CDC MMWR Notes from the Field (cdc.gov/mmwr, 2026-06-05) https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e3.htm",
-      "CDC MMWR Modelled Scenario Projections (cdc.gov/mmwr, 2026-06-05) https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e1.htm",
-      "WHO AFRO Ebola Outbreak Page (afro.who.int, 2026-06-29) https://www.afro.who.int/health-topics/ebola-disease/outbreak-drc-26",
-      "Africa CDC PHECS Statement / KHub (africacdc.org / khub.africacdc.org, 2026-05-18) https://africacdc.org/news-item/ebola-response-statement-from-the-director-general-africa-cdc/",
-      "WHO PARTNERS Trial Announcement (who.int, 2026-07-02) https://www.who.int/news/item/02-07-2026-patient-enrolment-begins-in-a-scientific-trial-to-identify-the-first-effective-treatments-for-bundibugyo-virus-disease",
-      "ReliefWeb SitRep #9 (reliefweb.int, 2026-07-01) https://reliefweb.int/report/democratic-republic-congo/ebola-outbreak-drc-and-region-situation-report-9-july-1-2026",
-      "Reuters via Spokesman-Review \u2013 PARTNERS trial (spokesman.com/reuters, 2026-07-03) https://www.spokesman.com/stories/2026/jul/03/trial-for-bundibugyo-ebola-treatment-starts-in-drc/",
-      "Al Jazeera \u2013 France case confirmed (aljazeera.com, 2026-06-24) https://www.aljazeera.com/news/2026/6/24/france-confirms-first-ebola-case-in-doctor-returning-from-dr-congo",
+      "WHO Disease Outbreak News DON612 (who.int, 2026-07-03) https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612",
+      "ECDC Outbreak Update (ecdc.europa.eu, 2026-07-03) https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "CDC Ebola Current Situation (cdc.gov, 2026-07-03) https://www.cdc.gov/ebola/situation-summary/index.html",
+      "CDC MMWR Notes from the Field (cdc.gov, 2026-06-05) https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e3.htm",
+      "CDC MMWR Risk Assessment (cdc.gov, 2026-06-05) https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e2.htm",
+      "NICD Situational Update (nicd.ac.za, 2026-06-26) https://www.nicd.ac.za/situational-update-on-the-ebola-disease-outbreak-caused-by-bundibugyo-virus/",
+      "WHO AFRO Outbreak Page (afro.who.int, 2026-07-01) https://www.afro.who.int/health-topics/ebola-disease/outbreak-drc-26",
+      "WHO PARTNERS Trial Enrolment News (who.int, 2026-07-02) https://www.who.int/news/item/02-07-2026-patient-enrolment-begins-in-a-scientific-trial-to-identify-the-first-effective-treatments-for-bundibugyo-virus-disease",
       "Euronews \u2013 France case discharged (euronews.com, 2026-07-04) https://www.euronews.com/health/2026/07/04/france-first-ebola-case-recovered-and-discharged-from-hospital",
-      "MSF / Doctors Without Borders Outbreak Response (doctorswithoutborders.org, 2026-06-15) https://www.doctorswithoutborders.org/latest/ebola-disease-outbreak-2026-how-msf-responding",
-      "NPR / KPBS \u2013 DRC Health Workers Battle Ebola (npr.org/kpbs.org, 2026-06-30) https://www.npr.org/2026/06/30/nx-s1-5873364/drc-congo-ebola-health-workers-doctors",
-      "UN News \u2013 One Month On (news.un.org, 2026-06-17) https://news.un.org/en/story/2026/06/1167763"
+      "France 24 \u2013 France confirms first case (france24.com, 2026-06-24) https://www.france24.com/en/france/20260624-france-confirms-first-ebola-case-in-doctor-returning-from-dr-congo-mission",
+      "MSF \u2013 Bundibugyo outbreak response (doctorswithoutborders.org, 2026-06-30) https://www.doctorswithoutborders.org/latest/ebola-disease-outbreak-2026-how-msf-responding",
+      "ReliefWeb DRC/Uganda Ebola Disaster Page (reliefweb.int, 2026-07-03) https://reliefweb.int/disaster/ep-2026-000071-cod",
+      "Wikipedia 2026 Ebola Epidemic (en.wikipedia.org, 2026-07-05) https://en.wikipedia.org/wiki/2026_Ebola_epidemic",
+      "TechTimes \u2013 France Ebola import analysis (techtimes.com, 2026-06-26) https://www.techtimes.com/articles/319159/20260626/ebola-arrives-france-infected-aid-doctor-flew-commercial-1118-drc-cases-mount.htm"
     ],
     "disease": "Ebola disease (Bundibugyo virus)",
     "phase": "Public Health Emergency of International Concern (PHEIC)",
@@ -27,14 +26,14 @@
       "primary_count": 8,
       "wire_count": 4,
       "scholarly_count": 2,
-      "notes": "WHO DON612 (3 Jul 2026) is the authoritative reference for headline totals (1,481 confirmed / 454 deaths); ECDC (3 Jul) independently confirms 1,460 DRC confirmed cases + 452 DRC deaths with minor 24-hour lag vs. WHO due to data-cut differences, and Euronews (4 Jul) confirms the France case has resolved \u2014 all primary sources are in strong agreement."
+      "notes": "WHO DON612 (3 Jul), ECDC (3 Jul), CDC, NICD, and Wikipedia all agree on 1,460 DRC confirmed cases and 452 DRC deaths as of 1 July; WHO DON612 gives the authoritative global total of 1,481 confirmed and 454 deaths including Uganda and France; no material discrepancies found across sources."
     },
     "top_publications": [
-      "WHO (DON612 + PARTNERS announcement)",
-      "ECDC",
-      "CDC / CDC MMWR",
-      "Africa CDC",
-      "Reuters"
+      "WHO (DON612 & PARTNERS announcement)",
+      "ECDC (Outbreak update, 3 Jul 2026)",
+      "CDC (Situation summary & MMWR)",
+      "WHO AFRO",
+      "NICD South Africa"
     ]
   },
   "totals": {
@@ -50,188 +49,136 @@
     "health_zones_affected": 36,
     "countries_with_cases": 4,
     "healthcare_worker_deaths": 25,
-    "as_of": "2026-07-04T14:04:09+00:00"
+    "as_of": "2026-07-04T23:17:59+00:00"
   },
   "locations": [
     {
-      "id": "ituri-province-drc",
+      "id": "ituri-drc",
       "name": "Ituri Province (24 health zones)",
       "region": "Ituri",
       "country": "Democratic Republic of the Congo",
       "lat": 1.85,
-      "lon": 30.0,
+      "lon": 29.97,
       "status": "active",
       "tier": "epicenter",
       "first_reported": "2026-05-05",
       "confirmed_cases": 1333,
       "deaths": 380,
-      "notes": "Epicentre of the outbreak; Ituri accounts for 91.3% of all DRC confirmed cases across 24 of 36 health zones, with Mongbwalu and Rwampara as initial hotspots per WHO DON612 (3 Jul 2026)."
+      "notes": "Epicentre of the outbreak; Ituri accounts for 1,333 confirmed cases and 380 deaths across 24 of its 36 health zones, per ECDC update of 3 July 2026 citing WHO data to 1 July."
     },
     {
-      "id": "bunia-ituri-drc",
-      "name": "Bunia",
+      "id": "mongbwalu-ituri",
+      "name": "Mongbwalu Health Zone",
       "region": "Ituri",
       "country": "Democratic Republic of the Congo",
-      "lat": 1.5585,
-      "lon": 30.2506,
-      "status": "active",
-      "tier": "epicenter",
-      "first_reported": "2026-05-05",
-      "notes": "Capital of Ituri province and central referral point; hospitals overwhelmed by mid-May requiring field hospital setup per WHO; MSF treatment centre operational; 641 patients currently hospitalised across DRC as of 30 Jun (ECDC 3 Jul)."
-    },
-    {
-      "id": "mongbwalu-ituri-drc",
-      "name": "Mongbwalu",
-      "region": "Ituri",
-      "country": "Democratic Republic of the Congo",
-      "lat": 1.95,
+      "lat": 1.96,
       "lon": 30.03,
       "status": "active",
       "tier": "epicenter",
       "first_reported": "2026-05-05",
-      "notes": "High-traffic artisanal gold mining hub theorised as likely index site, with earliest infections possibly dating to February 2026; initial INRB confirmations from this health zone per CDC HAN and WHO DON603."
+      "notes": "Initial spillover cluster identified here and in Rwampara; INRB confirmed 8 of 13 samples positive on 15 May; historically one of the three health zones accounting for 96% of early suspected cases."
     },
     {
-      "id": "rwampara-ituri-drc",
-      "name": "Rwampara",
+      "id": "bunia-ituri",
+      "name": "Bunia Health Zone",
       "region": "Ituri",
       "country": "Democratic Republic of the Congo",
-      "lat": 1.72,
-      "lon": 30.12,
+      "lat": 1.56,
+      "lon": 30.25,
       "status": "active",
       "tier": "epicenter",
-      "first_reported": "2026-05-05",
-      "notes": "One of the three original confirmed health zones; Rwampara Ebola Treatment Centre is a key facility currently operating; community violence including arson at treatment tents reported in late May."
+      "first_reported": "2026-05-15",
+      "notes": "Capital of Ituri; hospitals became overwhelmed by mid-May, prompting field hospital establishment; MSF treatment centre in Bunia continues to admit rising patient numbers per June 2026 MSF report."
     },
     {
-      "id": "nord-kivu-province-drc",
+      "id": "nord-kivu-drc",
       "name": "Nord-Kivu Province (11 health zones)",
       "region": "Nord-Kivu",
       "country": "Democratic Republic of the Congo",
-      "lat": -0.5,
-      "lon": 29.25,
+      "lat": -0.7,
+      "lon": 29.22,
       "status": "active",
       "tier": "high",
       "first_reported": "2026-05-17",
-      "confirmed_cases": 124,
-      "deaths": 71,
-      "notes": "Second most affected province; 124 confirmed cases and 71 deaths from 11 of 35 health zones per ECDC (3 Jul 2026), including Goma, Butembo, and Beni; MSF treatment centres operational in Goma and Mongbwalu."
+      "notes": "Spread confirmed in 11 health zones including Goma (17 May) and Butembo (18 May); MSF established isolation zones at Kyeshero Hospital in Goma; conflict with M23 complicates response."
     },
     {
-      "id": "goma-nord-kivu-drc",
+      "id": "goma-nord-kivu",
       "name": "Goma",
       "region": "Nord-Kivu",
       "country": "Democratic Republic of the Congo",
-      "lat": -1.6796,
-      "lon": 29.2285,
+      "lat": -1.68,
+      "lon": 29.22,
       "status": "active",
       "tier": "high",
       "first_reported": "2026-05-17",
-      "notes": "Capital of Nord-Kivu; first case confirmed 17 May 2026 after travel from Ituri; MSF Kyeshero Hospital isolation zone established; UNICEF U-Report community awareness conducted here as of 24 Jun."
+      "notes": "First case confirmed 17 May after a woman infected with Ebola travelled from Ituri; Goma is under M23/Rwanda-linked control, severely complicating surveillance and response access."
     },
     {
-      "id": "butembo-nord-kivu-drc",
+      "id": "butembo-nord-kivu",
       "name": "Butembo",
       "region": "Nord-Kivu",
       "country": "Democratic Republic of the Congo",
-      "lat": 0.1306,
-      "lon": 29.2854,
+      "lat": 0.13,
+      "lon": 29.29,
       "status": "active",
       "tier": "high",
       "first_reported": "2026-05-18",
-      "notes": "Former epicentre of 2018-2020 Zaire Ebola outbreak; cases confirmed 18 May 2026; represents a high-risk urban amplifier with established community memory of Ebola response."
+      "notes": "Cases identified 18 May; Butembo was the 2018\u20132020 Ebola-Zaire epicentre and shares an experienced but traumatised response infrastructure; now re-affected in the BDBV outbreak."
     },
     {
-      "id": "beni-nord-kivu-drc",
-      "name": "Beni",
-      "region": "Nord-Kivu",
-      "country": "Democratic Republic of the Congo",
-      "lat": 0.4933,
-      "lon": 29.4737,
-      "status": "active",
-      "tier": "high",
-      "first_reported": "2026-05-29",
-      "notes": "Confirmed cases reported from 29 May 2026; previous Ebola epicentre during the 2018-2020 outbreak; ongoing insecurity and M23 conflict complicate response operations."
-    },
-    {
-      "id": "sud-kivu-province-drc",
+      "id": "sud-kivu-drc",
       "name": "Sud-Kivu Province (1 health zone)",
       "region": "Sud-Kivu",
       "country": "Democratic Republic of the Congo",
-      "lat": -2.5,
-      "lon": 28.85,
+      "lat": -2.51,
+      "lon": 28.87,
       "status": "active",
       "tier": "high",
-      "first_reported": "2026-05-21",
-      "confirmed_cases": 3,
-      "deaths": 1,
-      "notes": "Three confirmed cases and one death from one health zone per ECDC (3 Jul 2026); a probable case near Bukavu was confirmed in late May after travel from Kisangani area (Wikipedia / WHO sources)."
-    },
-    {
-      "id": "haut-uele-province-drc",
-      "name": "Haut-U\u00e9l\u00e9 Province",
-      "region": "Haut-U\u00e9l\u00e9",
-      "country": "Democratic Republic of the Congo",
-      "lat": 3.5,
-      "lon": 27.0,
-      "status": "active",
-      "tier": "new",
-      "first_reported": "2026-06-29",
-      "notes": "Newly reported ~29 Jun 2026 per Wikipedia citing DRC INSP; cases administratively attributed back to Ituri Province per INSP footnote; extends outbreak zone toward South Sudan and CAR borders."
-    },
-    {
-      "id": "kisangani-tshopo-drc",
-      "name": "Kisangani (Tshopo Province)",
-      "region": "Tshopo",
-      "country": "Democratic Republic of the Congo",
-      "lat": 0.5197,
-      "lon": 25.1901,
-      "status": "active",
-      "tier": "new",
-      "first_reported": "2026-06-30",
-      "notes": "30 Jun 2026: a deceased pregnant woman's body tested positive in Kisangani after dying in Bunia on 27 Jun and being transported home; administratively attributed to Ituri by INSP per Wikipedia."
+      "first_reported": "2026-05-29",
+      "notes": "One health zone affected; geographically adjacent to Ituri and Nord-Kivu; confirmed cases represent southward spread risk toward Burundi and Tanzania border areas."
     },
     {
       "id": "kampala-uganda",
       "name": "Kampala",
       "region": "Central Region",
       "country": "Uganda",
-      "lat": 0.3476,
-      "lon": 32.5825,
+      "lat": 0.32,
+      "lon": 32.58,
       "status": "active",
       "tier": "international",
       "first_reported": "2026-05-15",
       "confirmed_cases": 20,
       "deaths": 2,
-      "notes": "All 20 Uganda confirmed cases have appeared in Kampala; 15 had travel links to DRC and 5 were local transmission events; last confirmed case was 21 June 2026 with no new cases since (ECDC 3 Jul / WHO DON612)."
+      "notes": "All 20 Uganda confirmed cases have appeared in Kampala; 15 had travel links to DRC and 5 were locally transmitted; last confirmed case was 21 June 2026, with no new cases reported since (per ECDC 3 Jul)."
     },
     {
-      "id": "france-case-1",
-      "name": "France (Paris \u2014 single case)",
+      "id": "paris-france",
+      "name": "Paris (\u00cele-de-France)",
       "region": "\u00cele-de-France",
       "country": "France",
-      "lat": 48.8566,
-      "lon": 2.3522,
+      "lat": 48.86,
+      "lon": 2.35,
       "status": "resolved",
       "tier": "international",
       "first_reported": "2026-06-24",
       "confirmed_cases": 1,
       "deaths": 0,
-      "notes": "Doctor returning from a humanitarian mission in DRC tested positive on 24 June \u2014 the first Ebola case on French soil; patient isolated immediately, all precautionary measures applied; French Health Minister announced recovery and hospital discharge on 4 July 2026 (Euronews)."
+      "notes": "French doctor returning from DRC humanitarian mission confirmed positive 24 June with very low viral load; promptly isolated; recovered and discharged from hospital 4 July per Euronews/French Health Minister announcement; first Ebola case ever confirmed on French soil."
     },
     {
-      "id": "germany-case-1",
-      "name": "Germany (single case \u2014 medical evacuation)",
-      "region": "Germany",
+      "id": "berlin-germany",
+      "name": "Berlin",
+      "region": "Berlin",
       "country": "Germany",
-      "lat": 51.1657,
-      "lon": 10.4515,
+      "lat": 52.52,
+      "lon": 13.4,
       "status": "resolved",
       "tier": "international",
-      "first_reported": "2026-05-21",
+      "first_reported": "2026-05-17",
       "confirmed_cases": 1,
       "deaths": 0,
-      "notes": "US citizen working in DRC medically evacuated to Germany for treatment; case imported from DRC; no secondary transmission; both European cases noted by ECDC (3 Jul 2026) as imported from DRC-affected areas."
+      "notes": "American surgeon (Peter Stafford, Serge charity) contracted BDBV at Nyankunde Hospital in DRC's Ituri; evacuated via controlled medical transport to Charit\u00e9 Hospital Berlin; recovered and discharged ~6 June after 17 days of care including experimental therapies."
     }
   ],
   "timeline": [
@@ -632,6 +579,10 @@
       "event": "DRC and Uganda simultaneously declare Ebola (BDBV) outbreaks following INRB genomic confirmation; WHO alerted 5 May; earliest theorised infections February 2026 in Mongbwalu."
     },
     {
+      "date": "2026-05-15",
+      "event": "DRC MoH officially declares 17th Ebola outbreak; Uganda simultaneously declares outbreak following imported BDBV case in Kampala; INRB confirmed 8 positives in Mongbwalu/Rwampara health zones; 246 suspected cases and 80 deaths already reported."
+    },
+    {
       "date": "2026-05-16",
       "event": "Second confirmed Kampala case (fatal). Suspected Kinshasa case reported (later retracted)."
     },
@@ -852,6 +803,10 @@
       "event": "WHO DG declares PHEIC for Bundibugyo Ebola in DRC and Uganda; CDC initiates public health emergency response."
     },
     {
+      "date": "2026-05-17",
+      "event": "WHO Director-General declares outbreak a PHEIC \u2014 largest Ebola PHEIC in history by initial case load; CDC initiates public health emergency response; US surgeon Peter Stafford evacuated to Berlin."
+    },
+    {
       "date": "2026-05-18",
       "event": "Outbreak expands from 3 to 9+ health zones in DRC. New confirmed case in Goma (under M23 rebel control). US CDC enacts enhanced travel screening."
     },
@@ -994,6 +949,10 @@
     {
       "date": "2026-05-18",
       "event": "Africa CDC declares Public Health Emergency of Continental Security (PHECS); US restricts entry from DRC, Uganda and South Sudan; Germany receives medically evacuated US case."
+    },
+    {
+      "date": "2026-05-18",
+      "event": "Africa CDC declares Public Health Emergency of Continental Security (PHECS); US begins restricting entry from DRC, Uganda, and South Sudan; only US citizens/nationals allowed entry from 22 May."
     },
     {
       "date": "2026-05-19",
@@ -1344,6 +1303,10 @@
       "event": "WHO recommends against off-label use of Ervebo (rVSV-ZEBOV) for BDBV due to insufficient cross-protection evidence; recommends MBP134, maftivimab, and remdesivir for clinical trials."
     },
     {
+      "date": "2026-05-28",
+      "event": "WHO recommends against off-label use of rVSV-ZEBOV (Ervebo) for BDBV; recommends MBP-134, maftivimab, and remdesivir as candidates for PARTNERS trial."
+    },
+    {
       "date": "2026-05-29",
       "event": "Wikipedia/Reliefweb aggregate: ~1,262 suspected+confirmed cases and at least 241 deaths reported (pre-recount peak); Africa CDC reports pledged international donor funds ($500M) fell sharply within days."
     },
@@ -1542,6 +1505,10 @@
     {
       "date": "2026-06-01",
       "event": "CEPI commits $61.8M for three BDBV vaccine candidates: IAVI ($3.2M), Moderna ($50M), University of Oxford ($8.6M). MSF announces 65-bed ETC in Ituri."
+    },
+    {
+      "date": "2026-06-01",
+      "event": "CEPI announces $61.8M in funding to fast-track three BDBV vaccine candidates: IAVI ($3.2M), Moderna ($50M), University of Oxford ($8.6M); Phase 1 trials not yet begun."
     },
     {
       "date": "2026-06-02",
@@ -1748,6 +1715,10 @@
       "event": "CDC MMWR modelling (Mooring et al.) published: 65% probability of >20,000 cases in 3 months under poor isolation (20%) scenario; WHO/Africa CDC '$518M One Response' plan launched."
     },
     {
+      "date": "2026-06-06",
+      "event": "American surgeon Peter Stafford discharged from Charit\u00e9 Hospital Berlin after recovery from BDBV; had received experimental therapies during 17 days of care; family members in quarantine released simultaneously."
+    },
+    {
       "date": "2026-06-15",
       "event": "MSF warns of major surveillance, contact tracing, and community engagement gaps one month after outbreak declaration; WHO Emergency Response Lead rates response at '3 or 4 out of 10' needed."
     },
@@ -1856,6 +1827,10 @@
       "event": "Uganda's last confirmed Ebola case reported; as of 3 July no new cases for 12+ days, suggesting potential stabilisation in Uganda."
     },
     {
+      "date": "2026-06-21",
+      "event": "Uganda's last confirmed BDBV case reported as of 21 June 2026 per ECDC/WHO data; Uganda has reported no new cases since, suggesting potential stabilisation."
+    },
+    {
       "date": "2026-06-22",
       "event": "DRC Health Ministry confirms more than 1,000 cases, making the outbreak the third-largest Ebola epidemic ever recorded globally."
     },
@@ -1870,6 +1845,10 @@
     {
       "date": "2026-06-22",
       "event": "DRC Health Ministry confirms >1,000 confirmed cases, making this the third-largest Ebola outbreak in history per CDC."
+    },
+    {
+      "date": "2026-06-22",
+      "event": "DRC Health Ministry confirms more than 1,000 cases, making 2026 BDBV outbreak the third-largest Ebola epidemic in history (CDC confirmed milestone)."
     },
     {
       "date": "2026-06-24",
@@ -1902,6 +1881,10 @@
     {
       "date": "2026-06-24",
       "event": "France confirms first Ebola case: a doctor returning from a humanitarian mission in DRC tests positive \u2014 first detection of BDBV on European/French soil and first non-African confirmed case in this outbreak."
+    },
+    {
+      "date": "2026-06-24",
+      "event": "France confirms first Ebola case on French soil: an ALIMA doctor who boarded Air France from Kinshasa with headaches; confirmed BDBV positive in Paris; very low viral load, placed in isolation; first Ebola case detected on French territory."
     },
     {
       "date": "2026-06-25",
@@ -2036,6 +2019,14 @@
       "event": "Attack on an Ebola treatment centre in Ituri province kills two people, WHO DG Tedros describes ongoing violence and community mistrust as 'a major ongoing challenge'."
     },
     {
+      "date": "2026-07-02",
+      "event": "WHO announces first patient enrolled in PARTNERS clinical trial evaluating MBP134 monoclonal antibody \u00b1 remdesivir \u2014 the first-ever interventional treatment trial specifically targeting Bundibugyo virus disease; trial delivered with ALIMA and MSF."
+    },
+    {
+      "date": "2026-07-02",
+      "event": "WHO DON612 data: Uganda reports 20 confirmed cases including 2 deaths and 1 probable death as of 2 July; 15 had travel links to DRC, 5 were local transmission; 16 recovered."
+    },
+    {
       "date": "2026-07-03",
       "event": "WHO publishes DON612: 1,481 total confirmed (1,460 DRC + 20 Uganda + 1 France), 454 deaths; 102 HCW cases and 25 HCW deaths; 36 health zones affected; cases in 4th and 5th DRC provinces (Haut-U\u00e9l\u00e9, Tshopo) under response."
     },
@@ -2048,8 +2039,20 @@
       "event": "WHO DON612 published: 1,481 total confirmed cases (1,460 DRC + 20 Uganda + 1 France), 454 deaths. PARTNERS trial enrolled first patient. 650 beds available at ~96% occupancy. Attack on Ituri ETC killed 2 people."
     },
     {
+      "date": "2026-07-03",
+      "event": "WHO publishes DON612 reporting 1,481 total confirmed cases (1,460 DRC, 20 Uganda, 1 France) and 454 deaths; DRC confirmed-case CFR 30.9%; 564 new DRC cases since 19 June DON611."
+    },
+    {
+      "date": "2026-07-03",
+      "event": "ECDC updates outbreak page: DRC at 1,460 confirmed cases and 452 deaths (data to 30 Jun); Uganda at 20 cases and 2 deaths, last case 21 June; 641 currently hospitalised in DRC; 82.7% contact follow-up rate."
+    },
+    {
       "date": "2026-07-04",
       "event": "France: Health Minister St\u00e9phanie Rist announces France's first Ebola case has recovered and been discharged from hospital (Euronews, 4 Jul 2026)."
+    },
+    {
+      "date": "2026-07-04",
+      "event": "France's Health Minister announces first Ebola case on French soil has recovered and been discharged from hospital; patient was a doctor who returned from DRC mission, confirmed positive 24 June."
     }
   ],
   "history_snapshots": [
@@ -2171,211 +2174,202 @@
       "suspected": 0,
       "deaths": 454,
       "health_zones": 36
+    },
+    {
+      "date": "2026-07-05",
+      "confirmed": 1481,
+      "suspected": 0,
+      "deaths": 454,
+      "health_zones": 36
     }
   ],
   "alerts": [
     {
       "level": "critical",
-      "title": "Outbreak Surging: 1,481 Confirmed Cases, 454 Deaths \u2014 No Approved Treatment",
-      "body": "WHO DON612 (3 Jul 2026) confirms 1,481 total confirmed cases and 454 deaths. DRC is averaging ~38 new confirmed cases per day; 838 cases and 314 deaths in the last 21 days alone. No approved vaccine or therapeutic exists for BDBV; the PARTNERS trial enrolled its first patient on 2 July 2026.",
+      "title": "Sustained DRC surge: 1,460 confirmed cases, 452 deaths as of 1 July",
+      "body": "WHO DON612 (3 Jul) reports 1,460 DRC confirmed cases and 452 DRC deaths, with 564 new confirmed cases added since 19 June alone \u2014 averaging ~38/day. Ituri remains the epicentre (1,333 cases, 380 deaths, 24 HZs); 641 patients currently hospitalised in DRC. The outbreak is the third-largest Ebola epidemic in history.",
       "source": "WHO DON612",
       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612"
     },
     {
       "level": "critical",
-      "title": "Healthcare Workers: 102 Confirmed Cases, 25 Deaths",
-      "body": "WHO DON612 confirms 102 confirmed HCW cases and 25 HCW deaths as of 1 July 2026, reflecting acute occupational risk due to IPC gaps, PPE shortages, and community violence including an attack killing 2 people at an Ituri ETC on ~2 July.",
-      "source": "WHO DON612",
-      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612"
-    },
-    {
-      "level": "critical",
-      "title": "Treatment Capacity at Breaking Point: 96% Bed Occupancy",
-      "body": "Treatment capacity stands at 650 beds with approximately 96% occupied as of 3 July 2026; WHO and partners are working to add 300 additional beds. Contact tracing coverage at 82.7% remains below the \u226590% containment threshold.",
-      "source": "Reuters / WHO (3 Jul 2026)",
-      "url": "https://www.spokesman.com/stories/2026/jul/03/trial-for-bundibugyo-ebola-treatment-starts-in-drc/"
+      "title": "No approved BDBV vaccine or therapeutic; PARTNERS trial enrolment begun 2 Jul",
+      "body": "No vaccine or therapeutic is approved for Bundibugyo virus disease. The first patient in the PARTNERS trial (evaluating MBP134 \u00b1 remdesivir) was enrolled 2 July 2026. CEPI committed $61.8M for three vaccine candidates (IAVI, Moderna, Oxford), but Phase 1 trials have not begun \u2014 meaning no vaccine will be deployable at scale during this outbreak.",
+      "source": "WHO",
+      "url": "https://www.who.int/news/item/02-07-2026-patient-enrolment-begins-in-a-scientific-trial-to-identify-the-first-effective-treatments-for-bundibugyo-virus-disease"
     },
     {
       "level": "warning",
-      "title": "Geographic Spread: 5 DRC Provinces Signalled, 36 Health Zones Confirmed",
-      "body": "36 health zones across Ituri (24), Nord-Kivu (11), and Sud-Kivu (1) are confirmed affected; signals of spread to Haut-U\u00e9l\u00e9 (~29 Jun) and Tshopo/Kisangani (~30 Jun) have emerged, though INSP attributes these cases to Ituri. The outbreak now extends toward South Sudan, CAR, and the Central Congo Basin.",
-      "source": "WHO DON612 / Wikipedia (citing INSP)",
-      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612"
+      "title": "Contact tracing at 82.7% \u2014 below 90% containment threshold",
+      "body": "Only 82.7% of identified contacts are under follow-up in Ituri and Nord-Kivu provinces as of 3 July, well below the \u226590% threshold considered necessary for outbreak containment. Insecurity, population displacement, and mining-driven movement continue to hamper tracing.",
+      "source": "ECDC",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda"
     },
     {
       "level": "warning",
-      "title": "International Spread: France Case Resolved; Uganda Stable but Not Declared Over",
-      "body": "France's first Ebola case (confirmed 24 Jun) was discharged from hospital on 4 July 2026 with no secondary transmission. Uganda's last case was 21 June; no new cases in 13+ days. Germany's medically evacuated case previously resolved. All 4 countries with cases remain under active WHO monitoring.",
-      "source": "Euronews / ECDC (4 Jul 2026)",
+      "title": "Air-travel importation risk demonstrated: France and Germany cases",
+      "body": "France confirmed its first Ebola case on 24 June (doctor returning from DRC on commercial Air France flight); the patient recovered and was discharged 4 July. An American surgeon was evacuated to Germany in May and recovered by 6 June. Both cases demonstrate international importation risk; ECDC notes the next update for EU/EEA risk will publish 6 July.",
+      "source": "ECDC / Euronews",
       "url": "https://www.euronews.com/health/2026/07/04/france-first-ebola-case-recovered-and-discharged-from-hospital"
     },
     {
       "level": "warning",
-      "title": "MMWR Modelling: 65% Probability of >20,000 Cases Under Low-Isolation Scenario",
-      "body": "CDC MMWR (Mooring et al., 5 Jun 2026) projects a 65% probability of exceeding 20,000 cases within 3 months if only 20% of patients enter isolation; the $518M 'One Response' plan remains critically underfunded.",
-      "source": "CDC MMWR",
-      "url": "https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e1.htm"
+      "title": "Uganda: No new cases since 21 June \u2014 potential stabilisation",
+      "body": "Uganda's last confirmed case was reported 21 June; 14 days without a new case as of 5 July. Of 20 confirmed cases, 16 recovered and 2 died; outbreak remains epidemiologically linked to DRC. Uganda has not been declared free of the outbreak yet.",
+      "source": "ECDC / WHO DON612",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda"
     },
     {
       "level": "info",
-      "title": "PARTNERS Trial Opens: First-Ever BDBV Treatment Trial Enrolling Patients",
-      "body": "The WHO-sponsored PARTNERS trial (MBP134 monoclonal antibody \u00b1 remdesivir, targeting >1,000 patients) enrolled its first patient on 2 July 2026 in DRC, coordinated by INRB, ITM Belgium, and University of Oxford. This is the first-ever interventional treatment trial for Bundibugyo virus disease.",
-      "source": "WHO",
-      "url": "https://www.who.int/news/item/02-07-2026-patient-enrolment-begins-in-a-scientific-trial-to-identify-the-first-effective-treatments-for-bundibugyo-virus-disease"
+      "title": "ECDC update next due 6 July 2026",
+      "body": "ECDC will publish its next weekly Communicable Disease Threats Report update on 6 July 2026. Current EU/EEA risk remains assessed as very low.",
+      "source": "ECDC",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda"
     }
   ],
   "news": [
     {
-      "title": "France's First Ebola Patient Recovered and Discharged from Hospital",
-      "summary": "French Health Minister St\u00e9phanie Rist announced on 4 July 2026 that France's first Ebola case \u2014 a doctor who contracted BDBV during a humanitarian mission in DRC \u2014 has recovered and been discharged from hospital. No secondary cases were detected in France.",
+      "title": "France's first Ebola patient recovers and is discharged from hospital \u2014 4 Jul",
+      "summary": "French Health Minister St\u00e9phanie Rist announced that France's first Ebola case \u2014 a doctor who returned from a DRC humanitarian mission and tested positive on 24 June \u2014 has fully recovered and been discharged from hospital on 4 July 2026. The case had a very low viral load; no secondary transmissions were identified.",
       "source": "Euronews",
       "url": "https://www.euronews.com/health/2026/07/04/france-first-ebola-case-recovered-and-discharged-from-hospital",
       "date": "2026-07-04",
       "tags": [
         "International",
-        "Containment",
         "France",
-        "Resolved"
+        "Resolved case",
+        "Travel"
       ]
     },
     {
-      "title": "WHO DON612: 1,481 Ebola Cases Confirmed; 564 New in 13 Days; PARTNERS Trial Starts",
-      "summary": "WHO Disease Outbreak News 612 (3 Jul 2026) confirms 1,481 total confirmed cases and 454 deaths globally; an additional 564 DRC cases reported since 19 June. The PARTNERS treatment trial enrolled its first patient on 2 July, and an ETC attack in Ituri killed 2 people the same day.",
+      "title": "WHO DON612: 1,481 total confirmed BDBV cases and 454 deaths globally as of 3 Jul",
+      "summary": "WHO's Disease Outbreak News bulletin DON612 (3 July) confirms 1,481 total confirmed cases \u2014 1,460 from DRC (to 1 Jul), 20 from Uganda (to 2 Jul), and 1 from France \u2014 and 454 total deaths. Since the previous DON611 on 19 June, DRC added 564 new confirmed cases and 220 deaths, partly due to expanded testing capacity.",
       "source": "WHO",
       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON612",
       "date": "2026-07-03",
       "tags": [
         "WHO",
         "Confirmed case",
-        "Research",
-        "Containment",
-        "Violence"
+        "DRC",
+        "Totals"
       ]
     },
     {
-      "title": "Ebola Treatment Trial Begins in DRC: PARTNERS Trial Enrolls First Patient",
-      "summary": "A major international clinical trial to find the first effective treatment for Bundibugyo virus disease opened enrolment in DRC on 2 July 2026. The PARTNERS trial will evaluate the monoclonal antibody MBP134 alone and in combination with remdesivir in over 1,000 patients.",
-      "source": "Reuters",
-      "url": "https://www.spokesman.com/stories/2026/jul/03/trial-for-bundibugyo-ebola-treatment-starts-in-drc/",
+      "title": "ECDC: DRC reports 1,460 confirmed Ebola cases; Uganda stable at 14+ days no new case",
+      "summary": "ECDC's 3 July update confirms DRC's 1,460 confirmed cases and 452 deaths (data to 30 June), with 641 currently hospitalised; Ituri leads with 1,333 cases across 24 health zones. Uganda has had no confirmed cases since 21 June, suggesting potential stabilisation in that country.",
+      "source": "ECDC",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "date": "2026-07-03",
       "tags": [
-        "Research",
-        "Vaccine",
-        "WHO",
-        "Treatment",
-        "PARTNERS"
-      ]
-    },
-    {
-      "title": "DRC Ebola: 96% Bed Occupancy, 10 Labs Operational, 300 More Beds Planned",
-      "summary": "WHO DG Tedros reported on 3 July that treatment capacity stands at 650 beds with ~96% occupancy and 10 functioning Ebola labs; WHO and partners are working to add 300 more beds. Tedros cited an attack on an ETC in Ituri killing 2 people as evidence of severe ongoing challenges.",
-      "source": "Reuters",
-      "url": "https://www.spokesman.com/stories/2026/jul/03/trial-for-bundibugyo-ebola-treatment-starts-in-drc/",
-      "date": "2026-07-03",
-      "tags": [
+        "ECDC",
+        "DRC",
+        "Uganda",
         "Containment",
-        "WHO",
-        "Funding",
-        "Violence"
+        "Totals"
       ]
     },
     {
-      "title": "Health Workers in DRC's Ituri Fear Ebola with Scarce PPE and Attacks",
-      "summary": "NPR reporting from Bunia (30 Jun 2026) documents frontline health workers operating without adequate protective equipment; one community nurse serves 40,000 people in an Ebola-stricken suburb of Bunia. Aid workers cite coordination difficulties and security risks as compounding the response.",
-      "source": "NPR",
-      "url": "https://www.npr.org/2026/06/30/nx-s1-5873364/drc-congo-ebola-health-workers-doctors",
+      "title": "First patient enrolled in PARTNERS trial \u2014 first-ever BDBV treatment study",
+      "summary": "WHO announced on 2 July that the PARTNERS clinical trial \u2014 evaluating MBP134 monoclonal antibody with or without remdesivir \u2014 enrolled its first patient, marking the first-ever interventional therapeutic trial specifically targeting Bundibugyo virus disease. The trial is delivered with DRC MoH, ALIMA, and MSF.",
+      "source": "WHO",
+      "url": "https://www.who.int/news/item/02-07-2026-patient-enrolment-begins-in-a-scientific-trial-to-identify-the-first-effective-treatments-for-bundibugyo-virus-disease",
+      "date": "2026-07-02",
+      "tags": [
+        "Research",
+        "Therapeutics",
+        "PARTNERS trial",
+        "WHO"
+      ]
+    },
+    {
+      "title": "MSF: Patients still arriving at Bunia treatment centre in advanced disease stage",
+      "summary": "More than a month after the outbreak was declared, MSF reports the magnitude remains alarming, particularly in Ituri, with patients at the MSF treatment centre in Bunia continuing to arrive in advanced stages of Bundibugyo virus disease. MSF is running treatment centres and isolation units in multiple affected health zones.",
+      "source": "M\u00e9decins Sans Fronti\u00e8res (MSF)",
+      "url": "https://www.doctorswithoutborders.org/latest/ebola-disease-outbreak-2026-how-msf-responding",
+      "date": "2026-07-02",
+      "tags": [
+        "MSF",
+        "Containment",
+        "DRC",
+        "Ituri"
+      ]
+    },
+    {
+      "title": "MSF: Why the Bundibugyo outbreak is harder to fight \u2014 no vaccine or treatment",
+      "summary": "MSF's medical lead for epidemic response explains that the Bundibugyo virus makes this outbreak significantly harder to fight: unlike Zaire-strain outbreaks, there is no approved vaccine or licensed treatment for BDBV. The two licensed monoclonal antibodies from the 2018\u20132020 DRC trial are not effective against Bundibugyo virus.",
+      "source": "M\u00e9decins Sans Fronti\u00e8res (MSF)",
+      "url": "https://www.doctorswithoutborders.org/latest/bundibugyo-virus-why-ebola-disease-outbreak-different",
       "date": "2026-06-30",
       "tags": [
-        "Healthcare workers",
-        "Containment",
-        "Funding"
-      ]
-    },
-    {
-      "title": "Ebola Spreads to Haut-U\u00e9l\u00e9: DRC Outbreak Signals Fourth Province",
-      "summary": "Media reported on 29 June 2026 that Ebola has spread to Haut-U\u00e9l\u00e9 province, the fourth DRC province affected, extending the outbreak zone toward South Sudan and the Central African Republic. INSP administratively attributed the cases to Ituri Province.",
-      "source": "Wikipedia / DRC INSP",
-      "url": "https://en.wikipedia.org/wiki/2026_Ebola_epidemic",
-      "date": "2026-06-29",
-      "tags": [
-        "Confirmed case",
-        "Geographic spread",
-        "DRC"
-      ]
-    },
-    {
-      "title": "France Confirms First Ebola Case: Returning Humanitarian Doctor Tests Positive",
-      "summary": "France confirmed on 24 June 2026 its first Ebola case \u2014 a healthcare worker who returned from a humanitarian mission in DRC \u2014 the first detection of BDBV on French soil and the first non-African case in the outbreak. The patient was isolated immediately and treated at a leading facility.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/6/24/france-confirms-first-ebola-case-in-doctor-returning-from-dr-congo",
-      "date": "2026-06-24",
-      "tags": [
-        "International",
-        "France",
-        "Confirmed case",
-        "Travel"
-      ]
-    },
-    {
-      "title": "Africa CDC Director Warns DRC Ebola Could Be Worst Ever Outbreak",
-      "summary": "Africa CDC DG Jean Kaseya warned that the DRC Bundibugyo outbreak could become the worst Ebola outbreak ever if not addressed quickly; he cited ~1 million internally displaced people in the affected region lacking even basic services and the multi-billion-dollar cost risk of an inadequate response.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/6/24/france-confirms-first-ebola-case-in-doctor-returning-from-dr-congo",
-      "date": "2026-06-24",
-      "tags": [
-        "Africa CDC",
-        "Funding",
-        "Containment"
-      ]
-    },
-    {
-      "title": "One Month On: Ebola Response 'At Three or Four Out of Ten', WHO Warns",
-      "summary": "One month after the DRC outbreak was declared, WHO Emergency Response Lead Dr. Rose Belizaire told UN News the response was 'at about three or four out of ten' of where it needed to be. Uganda recorded 19 cases including 2 deaths with no new cases reported since 5 June.",
-      "source": "UN News",
-      "url": "https://news.un.org/en/story/2026/06/1167763",
-      "date": "2026-06-17",
-      "tags": [
-        "WHO",
-        "Containment",
-        "Uganda"
-      ]
-    },
-    {
-      "title": "CEPI Commits $61.8M for Three BDBV Vaccine Candidates: IAVI, Moderna, Oxford",
-      "summary": "CEPI announced on 1 June 2026 funding to fast-track three candidate vaccines against Bundibugyo virus: IAVI ($3.2M), Moderna ($50M), and University of Oxford ($8.6M). Phase 1 trials have not yet begun, meaning no vaccine will be deployable at scale during this outbreak.",
-      "source": "Wikipedia / CEPI",
-      "url": "https://en.wikipedia.org/wiki/2026_Ebola_epidemic",
-      "date": "2026-06-01",
-      "tags": [
+        "MSF",
         "Vaccine",
-        "CEPI",
-        "Research",
-        "Funding"
+        "Therapeutics",
+        "Research"
       ]
     },
     {
-      "title": "CDC MMWR Models Project 65% Chance of >20,000 Cases Without Adequate Isolation",
-      "summary": "CDC scientists (Mooring et al., MMWR 5 Jun 2026) modelled scenario projections finding a 65% probability of exceeding 20,000 Bundibugyo cases within 3 months if patient isolation rates remain at 20%; stronger isolation (70%) reduces that to a 1-in-20 chance of \u226510,000 cases.",
+      "title": "France confirms first Ebola case on French soil \u2014 doctor flew commercial from Kinshasa",
+      "summary": "France confirmed its first Ebola case on 24 June: a doctor who boarded Air France from Kinshasa with only a headache. The case exposed a structural gap in airport exit screening. French authorities identified five potential contacts; the patient had a very low viral load and was immediately isolated.",
+      "source": "France 24",
+      "url": "https://www.france24.com/en/france/20260624-france-confirms-first-ebola-case-in-doctor-returning-from-dr-congo-mission",
+      "date": "2026-06-24",
+      "tags": [
+        "France",
+        "Travel",
+        "International",
+        "Confirmed case"
+      ]
+    },
+    {
+      "title": "NICD South Africa: 1,176 confirmed cases in three countries as of 25 June",
+      "summary": "South Africa's NICD published a situational update on 26 June confirming 1,176 confirmed BDBV cases and 306 deaths across DRC, Uganda, and France as of 25 June (CFR 26.0%). NICD confirmed no laboratory-confirmed BVD cases in South Africa, while advising healthcare workers to remain vigilant for returning travellers.",
+      "source": "NICD South Africa",
+      "url": "https://www.nicd.ac.za/situational-update-on-the-ebola-disease-outbreak-caused-by-bundibugyo-virus/",
+      "date": "2026-06-26",
+      "tags": [
+        "NICD",
+        "Totals",
+        "Regional preparedness"
+      ]
+    },
+    {
+      "title": "Ebola arrives in France: infected doctor flew commercial, exposing airport screening gap",
+      "summary": "Analysis from TechTimes (26 June) details how France's BDBV case \u2014 an ALIMA doctor who flew Air France from Kinshasa \u2014 exposed a structural gap in airport exit screening, as the patient boarded with only headaches. France's case is the second EU importation; the first was the American surgeon evacuated to Berlin under controlled transport.",
+      "source": "TechTimes",
+      "url": "https://www.techtimes.com/articles/319159/20260626/ebola-arrives-france-infected-aid-doctor-flew-commercial-1118-drc-cases-mount.htm",
+      "date": "2026-06-26",
+      "tags": [
+        "France",
+        "Travel",
+        "Airport screening",
+        "International"
+      ]
+    },
+    {
+      "title": "CDC MMWR: Modelled projections show 65% probability >20,000 cases under low-isolation scenarios",
+      "summary": "CDC MMWR scenario modelling (published 5 June, DOI 10.15585/mmwr.mm7522e1) projects a 65% probability of more than 20,000 cases in three months under low-isolation scenarios, with risk to the US assessed as extremely low due to population movement modelling (1.3% relative importation risk vs. other locations).",
       "source": "CDC MMWR",
       "url": "https://www.cdc.gov/mmwr/volumes/75/wr/mm7522e1.htm",
       "date": "2026-06-05",
       "tags": [
-        "Research",
         "CDC",
+        "Research",
         "Modelling",
-        "Containment"
+        "Projections"
       ]
     },
     {
-      "title": "MSF Warns of Major Surveillance and Community Engagement Gaps One Month On",
-      "summary": "MSF warned on 15 June 2026 that major gaps in surveillance, diagnosis, contact tracing, and community engagement were undermining control efforts; MSF runs three Ebola treatment centres in Ituri, Nord-Kivu, and Sud-Kivu, with hundreds of staff mobilised across DRC and Uganda.",
-      "source": "MSF / Doctors Without Borders",
-      "url": "https://www.doctorswithoutborders.org/latest/ebola-disease-outbreak-2026-how-msf-responding",
-      "date": "2026-06-15",
+      "title": "WHO PHEIC declared 17 May; Africa CDC PHECS declared 18 May \u2014 coordinated global response",
+      "summary": "WHO declared the BDBV outbreak a PHEIC on 17 May 2026 after 8 confirmed cases and 246 suspected in Ituri plus cases in Kampala. Africa CDC followed with a PHECS on 18 May. The US simultaneously initiated a public health emergency response and began traveller entry restrictions from DRC, Uganda, and South Sudan.",
+      "source": "WHO / CDC",
+      "url": "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern",
+      "date": "2026-05-17",
       "tags": [
-        "MSF",
-        "Containment",
-        "Surveillance"
+        "WHO",
+        "PHEIC",
+        "CDC",
+        "Africa CDC",
+        "Containment"
       ]
     }
   ],
@@ -2385,7 +2379,7 @@
       "family": "Filoviridae",
       "genus": "Orthoebolavirus (formerly Ebolavirus)",
       "discovery": "2007, Bundibugyo District, Uganda; genomic sequencing confirmed a novel species distinct from Zaire ebolavirus by ~30% genetic divergence \u2014 the same divergence that caused false-negative Xpert tests in 2026, delaying detection by ~10 days",
-      "case_fatality_rate_historical": "25\u201350% (WHO/CDC/ECDC historical range); 2026 DRC confirmed-case CFR 30.9% (452/1,460 per WHO DON612, 1 Jul 2026)",
+      "case_fatality_rate_historical": "25\u201350% historical (WHO/CDC/ECDC range); 2026 DRC confirmed-case CFR 30.9% (452/1,460 per WHO DON612, 1 Jul 2026)",
       "transmission": "Direct contact with blood, body fluids, or tissues of infected people or animals; contact with contaminated surfaces, fomites, or bodies of deceased individuals. Individuals are infectious only when symptomatic; Ebola remains contagious in corpses for several days. Funeral and burial practices are a key transmission amplifier. Fruit bats (Pteropodidae) are the suspected zoonotic reservoir. Initial genomic sequencing of 2026 outbreak is consistent with a new spillover event from an unknown zoonotic host (CDC MMWR). Does not spread via air or casual contact.",
       "incubation_days": "2\u201321 (average 8\u201310 days per CDC FAQ 2026)",
       "symptoms": "Sudden fever, fatigue, muscle pain, headache, sore throat \u2014 followed by vomiting, diarrhoea, abdominal pain, rash, impaired kidney/liver function; bleeding less common with BDBV than Zaire strain but reported in current outbreak. Co-infection with malaria should be considered in differential diagnosis.",
@@ -2426,20 +2420,20 @@
       },
       {
         "year": "2026",
-        "location": "Ituri (24 HZs), Nord-Kivu (11 HZs), Sud-Kivu (1 HZ), signals in Haut-U\u00e9l\u00e9 & Tshopo \u2014 DRC; Kampala \u2014 Uganda; France (1 case, resolved 4 Jul); Germany (1 case, resolved)",
+        "location": "Ituri (24 HZs), Nord-Kivu (11 HZs), Sud-Kivu (1 HZ) \u2014 DRC; Kampala \u2014 Uganda; Paris \u2014 France (resolved 4 Jul); Berlin \u2014 Germany (resolved ~6 Jun)",
         "cases": 1481,
         "deaths": 454,
         "cfr": "~30.9% DRC confirmed-case CFR (452/1,460 per WHO DON612, 1 Jul 2026)",
-        "notes": "Third and largest Bundibugyo outbreak ever by factor >9\u00d7 prior largest (149 cases, 2007\u201308); PHEIC declared WHO 17 May 2026; Africa CDC PHECS 18 May; third-largest Ebola outbreak globally; no approved vaccine or therapeutic; PARTNERS trial (MBP134 \u00b1 remdesivir) first patient enrolled 2 July 2026; WHO EUL for first BDBV diagnostic test granted 2 July 2026; France case recovered and discharged 4 July 2026."
+        "notes": "Third and largest Bundibugyo outbreak ever by factor >9\u00d7 prior largest (149 cases, 2007\u201308); PHEIC declared WHO 17 May 2026; Africa CDC PHECS 18 May; third-largest Ebola outbreak globally; no approved vaccine or therapeutic; PARTNERS trial first patient enrolled 2 July 2026; France case recovered and discharged 4 July 2026; Uganda last case 21 June with no new cases since."
       }
     ],
     "why_this_matters": [
-      "As of 3 July 2026, WHO DON612 (data to 1 Jul DRC / 2 Jul Uganda) confirms 1,481 total confirmed cases (1,460 DRC + 20 Uganda + 1 France) and 454 deaths; DRC's confirmed-case CFR is 30.9%. The outbreak is the third-largest Ebola epidemic in history. DRC is averaging ~38 new confirmed cases per day, with 838 confirmed cases and 314 deaths in the last 21 days alone.",
-      "The outbreak has now signalled spread to five DRC provinces: Ituri (epicentre, 24 HZs), Nord-Kivu (11 HZs), Sud-Kivu (1 HZ), and case signals in Haut-U\u00e9l\u00e9 (~29 Jun) and Tshopo/Kisangani (~30 Jun) \u2014 administratively attributed to Ituri by INSP but extending the outbreak zone toward South Sudan, CAR, and the Central Congo Basin.",
-      "The PARTNERS clinical trial (WHO-sponsored, evaluating MBP134 monoclonal antibody \u00b1 remdesivir) enrolled its first patient on 2 July 2026 \u2014 the first-ever interventional treatment trial specifically targeting Bundibugyo virus disease. WHO simultaneously granted Emergency Use Listing to the first-ever molecular diagnostic test for BDBV. No approved vaccine or therapeutic yet exists.",
-      "Healthcare worker risk is acute: WHO DON612 confirms 102 HCW confirmed cases and 25 HCW deaths. An armed attack on an Ebola treatment centre in Ituri on ~2 July (2 people killed) reflects ongoing community mistrust and violence. Treatment capacity stands at ~650 beds with ~96% occupied; 300 additional beds are being planned.",
-      "France's confirmed case (24 June, now recovered and discharged 4 July) marked the first Ebola detection on French soil, demonstrating air-travel importation risk. Uganda's last case was 21 June \u2014 13+ days without a new case \u2014 suggesting potential stabilisation in Uganda, while DRC continues to surge. Contact tracing follow-up stands at 82.7%, below the \u226590% containment threshold.",
-      "The $518M WHO/Africa CDC 'One Response' plan remains critically underfunded; CDC MMWR modelling (5 Jun) projects a 65% probability of >20,000 cases in 3 months under low-isolation scenarios. CEPI committed $61.8M for three vaccine candidates (IAVI, Moderna, Oxford) on 1 June, but Phase 1 trials have not yet begun \u2014 meaning no vaccine will be deployable at scale during this outbreak."
+      "As of 5 July 2026, WHO DON612 (data to 1 Jul DRC / 2 Jul Uganda) confirms 1,481 total confirmed cases (1,460 DRC + 20 Uganda + 1 France) and 454 deaths globally; DRC's confirmed-case CFR is 30.9%. The outbreak is the third-largest Ebola epidemic in history. DRC is averaging ~38 new confirmed cases per day, with 564 new confirmed cases in the 12 days since DON611 (19 June).",
+      "The outbreak spans five DRC provinces: Ituri (epicentre, 24 HZs, 1,333 cases), Nord-Kivu (11 HZs), Sud-Kivu (1 HZ), plus signals in Haut-U\u00e9l\u00e9 and Tshopo/Kisangani \u2014 extending the outbreak zone toward South Sudan, CAR, and the Central Congo Basin.",
+      "The PARTNERS clinical trial (WHO-sponsored, evaluating MBP134 monoclonal antibody \u00b1 remdesivir) enrolled its first patient on 2 July 2026 \u2014 the first-ever interventional treatment trial specifically targeting Bundibugyo virus disease. No approved vaccine or therapeutic yet exists. CEPI committed $61.8M for three vaccine candidates but Phase 1 trials have not begun.",
+      "Healthcare worker risk remains acute: WHO DON612 confirms 102 HCW confirmed cases and 25 HCW deaths. Contact tracing follow-up stands at 82.7%, below the \u226590% containment threshold. Ongoing insecurity including armed attacks on ETCs and ADF militia activity continues to impede response.",
+      "France's case (24 June, recovered 4 July) and Germany's case (May, recovered ~6 June) demonstrate air-travel importation risk \u2014 both imported via humanitarian workers returning from DRC. Uganda has had no confirmed cases since 21 June (14+ days), suggesting potential stabilisation, while DRC continues to surge. The $518M WHO/Africa CDC 'One Response' plan remains critically underfunded.",
+      "CDC MMWR modelling (5 June) projects a 65% probability of >20,000 cases in 3 months under low-isolation scenarios. The outbreak began only five months after DRC's previous Ebola outbreak ended \u2014 straining the same eastern DRC health system, in the same provinces, against a virus for which none of the tools developed for Zaire-strain Ebola apply."
     ]
   }
 }
